@@ -50,3 +50,15 @@ private extension Question {
     self.vote = vote
   }
 }
+
+extension Question: Decodable {
+  enum CodingKeys: String, CodingKey {
+    case id = "question_id"
+    case viewCount = "view_count"
+    case answerCount = "answer_count"
+    case isAnswered = "is_answered"
+    case creationDate = "creation_date"
+    case body = "body_markdown"
+    case title, score, owner
+  }
+}
