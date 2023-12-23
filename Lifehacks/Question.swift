@@ -27,17 +27,11 @@ struct Question {
   }
 
   mutating func upvote() {
-    guard vote != .up else { return }
-    unvote()
-    score += Vote.up.rawValue
-    vote = .up
+    cast(vote: .up)
   }
 
   mutating func downvote() {
-    guard vote != .down else { return }
-    unvote()
-    score += Vote.down.rawValue
-    vote = .down
+    cast(vote: .down)
   }
 }
 
@@ -45,5 +39,14 @@ extension Question {
   enum Vote: Int {
     case up = 1
     case down = -1
+  }
+}
+
+private extension Question {
+  mutating func cast(vote: Vote) {
+    guard self.vote != vote else { return }
+    unvote()
+    score += vote.rawValue
+    self.vote = vote
   }
 }
