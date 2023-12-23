@@ -21,11 +21,22 @@ extension User: Decodable {
     case name = "display_name"
     case aboutMe = "about_me"
     case profileImageURL = "profile_image"
+    case userType = "user_type"
     case reputation
+  }
+
+  enum DecodingError: Error {
+    case userDoesNotExist
   }
 
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
+    
+    let userType = try container.decode(String.self, forKey: .userType)
+    guard userType != "does_not_exist" else {
+      throw DecodingError.userDoesNotExist
+    }
+
     self.id = try container.decode(Int.self, forKey: .id)
     self.reputation = try container.decode(Int.self, forKey: .reputation)
     self.name = try container.decode(String.self, forKey: .name)

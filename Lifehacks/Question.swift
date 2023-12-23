@@ -61,4 +61,21 @@ extension Question: Decodable {
     case body = "body_markdown"
     case title, score, owner
   }
+
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    id = try container.decode(Int.self, forKey: .id)
+    score = try container.decode(Int.self, forKey: .score)
+    viewCount = try container.decode(Int.self, forKey: .viewCount)
+    answerCount = try container.decode(Int.self, forKey: .answerCount)
+    title = try container.decode(String.self, forKey: .title)
+    isAnswered = try container.decode(Bool.self, forKey: .isAnswered)
+    creationDate = try container.decode(Date.self, forKey: .creationDate)
+    body = try container.decode(String.self, forKey: .body)
+    do {
+      owner = try container.decodeIfPresent(User.self, forKey: .owner)
+    } catch User.DecodingError.userDoesNotExist {
+      owner = nil
+    }
+  }
 }
