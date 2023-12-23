@@ -79,3 +79,13 @@ extension Question: Decodable {
     }
   }
 }
+
+extension Question {
+  struct Wrapper: Decodable {
+    let items: [Question]
+
+    enum CodingKeys: CodingKey {
+      case items
+    }
+  }
+}

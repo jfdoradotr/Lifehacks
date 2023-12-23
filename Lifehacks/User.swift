@@ -44,3 +44,13 @@ extension User: Decodable {
     self.profileImageURL = try container.decode(URL.self, forKey: .profileImageURL)
   }
 }
+
+extension User {
+  struct Wrapper: Decodable {
+    let items: [User]
+
+    enum CodingKeys: CodingKey {
+      case items
+    }
+  }
+}
