@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - QuestionView
+
 struct QuestionView: View {
   let question: Question
 
@@ -17,6 +19,8 @@ struct QuestionView: View {
     }
   }
 }
+
+// MARK: - Voting
 
 extension QuestionView {
   struct Voting: View {
@@ -34,6 +38,8 @@ extension QuestionView {
   }
 }
 
+// MARK: - VoteButton
+
 extension QuestionView.Voting {
   struct VoteButton: View {
     let imageName: String
@@ -45,6 +51,8 @@ extension QuestionView.Voting {
     }
   }
 }
+
+// MARK: - Info
 
 extension QuestionView {
   struct Info: View {
@@ -66,6 +74,8 @@ extension QuestionView {
     }
   }
 }
+
+// MARK: - Preview
 
 #Preview {
   QuestionView(question: .preview)
