@@ -14,8 +14,8 @@ struct QuestionView: View {
     VStack(alignment: .leading, spacing: 8.0) {
       Text(question.title)
         .font(.headline)
-      Text("Asked on Sep 15th, 2019")
-      Text("Viewed 2.770 times")
+      Text("Asked on \(question.creationDate.formatted(date: .long, time: .omitted))")
+      Text("Viewed \(question.viewCount.formatted()) times")
     }
   }
 }
