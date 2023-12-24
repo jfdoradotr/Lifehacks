@@ -14,8 +14,12 @@ struct QuestionView: View {
     VStack(alignment: .leading, spacing: 8.0) {
       Text(question.title)
         .font(.headline)
-      Text("Asked on \(question.creationDate.formatted(date: .long, time: .omitted))")
-      Text("Viewed \(question.viewCount.formatted()) times")
+      Group {
+        Text("Asked on \(question.creationDate.formatted(date: .long, time: .omitted))")
+        Text("Viewed \(question.viewCount.formatted()) times")
+      }
+      .font(.caption)
+      .foregroundColor(.secondary)
     }
   }
 }
