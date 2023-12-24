@@ -40,8 +40,8 @@ extension User: Decodable {
     self.id = try container.decode(Int.self, forKey: .id)
     self.reputation = try container.decode(Int.self, forKey: .reputation)
     self.name = try container.decode(String.self, forKey: .name)
-    self.aboutMe = try container.decode(String.self, forKey: .aboutMe)
-    self.profileImageURL = try container.decode(URL.self, forKey: .profileImageURL)
+    self.aboutMe = try container.decodeIfPresent(String.self, forKey: .aboutMe)
+    self.profileImageURL = try container.decodeIfPresent(URL.self, forKey: .profileImageURL)
   }
 }
 
