@@ -12,13 +12,7 @@ struct QuestionView: View {
 
   var body: some View {
     HStack(alignment: .top, spacing: 16.0) {
-      VStack(spacing: 8.0) {
-        VoteButton(imageName: "arrowtriangle.up.fill")
-        Text("\(question.score)")
-          .font(.title)
-          .foregroundColor(.secondary)
-        VoteButton(imageName: "arrowtriangle.down.fill")
-      }
+      Voting(score: question.score)
       VStack(alignment: .leading, spacing: 8.0) {
         Text(question.title)
           .font(.headline)
@@ -34,6 +28,22 @@ struct QuestionView: View {
 }
 
 extension QuestionView {
+  struct Voting: View {
+    let score: Int
+
+    var body: some View {
+      VStack(spacing: 8.0) {
+        VoteButton(imageName: "arrowtriangle.up.fill")
+        Text("\(score)")
+          .font(.title)
+          .foregroundColor(.secondary)
+        VoteButton(imageName: "arrowtriangle.down.fill")
+      }
+    }
+  }
+}
+
+extension QuestionView.Voting {
   struct VoteButton: View {
     let imageName: String
 
