@@ -1,0 +1,177 @@
+{
+  "items": [
+    {
+      "owner": {
+        "reputation": 496974,
+        "user_id": 87234,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/FkjBe.png?s=256&g=1",
+        "display_name": "GManNickG"
+      },
+      "is_answered": true,
+      "view_count": 1853872,
+      "answer_count": 25,
+      "score": 27167,
+      "creation_date": 1340805096,
+      "question_id": 11227809,
+      "body_markdown": "In this C++ code, sorting the data (*before* the timed region) makes the primary loop ~6x faster:\r\n\r\n```c++\r\n#include <algorithm>\r\n#include <ctime>\r\n#include <iostream>\r\n\r\nint main()\r\n{\r\n\t// Generate data\r\n\tconst unsigned arraySize = 32768;\r\n\tint data[arraySize];\r\n\r\n\tfor (unsigned c = 0; c < arraySize; ++c)\r\n\t\tdata[c] = std::rand() % 256;\r\n\r\n\t// !!! With this, the next loop runs faster.\r\n\tstd::sort(data, data + arraySize);\r\n\r\n\t// Test\r\n\tclock_t start = clock();\r\n\tlong long sum = 0;\r\n\tfor (unsigned i = 0; i < 100000; ++i)\r\n\t{\r\n\t\tfor (unsigned c = 0; c < arraySize; ++c)\r\n\t\t{\t// Primary loop.\r\n\t\t\tif (data[c] >= 128)\r\n\t\t\t\tsum += data[c];\r\n\t\t}\r\n\t}\r\n\r\n\tdouble elapsedTime = static_cast<double>(clock()-start) / CLOCKS_PER_SEC;\r\n\r\n\tstd::cout << elapsedTime << '\\n';\r\n    std::cout << \"sum = \" << sum << '\\n';\r\n}\r\n```\r\n\r\n- Without `std::sort(data, data + arraySize);`, the code runs in 11.54 seconds.\r\n- With the sorted data, the code runs in 1.93 seconds.\r\n\r\n\r\n(Sorting itself takes more time than this one pass over the array, so it's not actually worth doing if we needed to calculate this for an unknown array.)\r\n\r\n---\r\n\r\nInitially, I thought this might be just a language or compiler anomaly, so I tried Java:\r\n\r\n```java\r\nimport java.util.Arrays;\r\nimport java.util.Random;\r\n\r\npublic class Main\r\n{\r\n\tpublic static void main(String[] args)\r\n\t{\r\n\t\t// Generate data\r\n\t\tint arraySize = 32768;\r\n\t\tint data[] = new int[arraySize];\r\n\r\n\t\tRandom rnd = new Random(0);\r\n\t\tfor (int c = 0; c < arraySize; ++c)\r\n\t\t    data[c] = rnd.nextInt() % 256;\r\n\r\n\t\t// !!! With this, the next loop runs faster\r\n\t\tArrays.sort(data);\r\n\r\n\t\t// Test\r\n\t\tlong start = System.nanoTime();\r\n\t\tlong sum = 0;\r\n\t\tfor (int i = 0; i < 100000; ++i)\r\n\t\t{\r\n\t\t\tfor (int c = 0; c < arraySize; ++c)\r\n\t\t\t{  \t// Primary loop.\r\n\t\t\t\tif (data[c] >= 128)\r\n\t\t\t\t\tsum += data[c];\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tSystem.out.println((System.nanoTime() - start) / 1000000000.0);\r\n\t\tSystem.out.println(\"sum = \" + sum);\r\n\t}\r\n}\r\n```\r\n\r\nWith a similar but less extreme result.\r\n\r\n---\r\n\r\nMy first thought was that sorting brings the data into the [cache](https://en.wikipedia.org/wiki/CPU_cache), but that's silly because the array was just generated.\r\n\r\n- What is going on?\r\n- Why is processing a sorted array faster than processing an unsorted array?\r\n\r\nThe code is summing up some independent terms, so the order should not matter.\r\n\r\n---\r\n\r\n**Related / follow-up Q&As** about the same effect with different/later compilers and options:\r\n\r\n* https://stackoverflow.com/q/66521344\r\n* https://stackoverflow.com/q/28875325",
+      "title": "Why is processing a sorted array faster than processing an unsorted array?"
+    },
+    {
+      "owner": {
+        "reputation": 49177,
+        "user_id": 89904,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/4fef65cead13e5d519f6bce3c501a537?s=256&d=identicon&r=PG",
+        "display_name": "Hamza Yerlikaya"
+      },
+      "is_answered": true,
+      "view_count": 13515634,
+      "answer_count": 104,
+      "score": 26105,
+      "creation_date": 1243620554,
+      "question_id": 927358,
+      "body_markdown": "I accidentally committed the wrong files to [Git][1], but didn't push the commit to the server yet. \r\n\r\nHow do I undo those commits from the *local* repository?\r\n\r\n\r\n\r\n  [1]: https://en.wikipedia.org/wiki/Git",
+      "title": "How do I undo the most recent local commits in Git?"
+    },
+    {
+      "owner": {
+        "reputation": 460491,
+        "user_id": 95592,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/uMfjc.jpg?s=256&g=1",
+        "display_name": "Matthew Rankin"
+      },
+      "is_answered": true,
+      "view_count": 11257024,
+      "answer_count": 41,
+      "score": 20389,
+      "creation_date": 1262653935,
+      "question_id": 2003505,
+      "body_markdown": "Failed Attempts to Delete a Remote Branch:\r\n\r\n```bash\r\n$ git branch -d remotes/origin/bugfix\r\nerror: branch 'remotes/origin/bugfix' not found.\r\n\r\n$ git branch -d origin/bugfix\r\nerror: branch 'origin/bugfix' not found.\r\n\r\n$ git branch -rd origin/bugfix\r\nDeleted remote branch origin/bugfix (was 2a14ef7).\r\n\r\n$ git push\r\nEverything up-to-date\r\n\r\n$ git pull\r\nFrom github.com:gituser/gitproject\r\n\r\n* [new branch] bugfix -> origin/bugfix\r\nAlready up-to-date.\r\n```\r\n\r\nHow do I properly delete the `remotes/origin/bugfix` branch both locally and remotely?\r\n",
+      "title": "How do I delete a Git branch locally and remotely?"
+    },
+    {
+      "owner": {
+        "reputation": 281634,
+        "user_id": 6068,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/931970b8dc51b72e05e3a12b88612d61?s=256&d=identicon&r=PG",
+        "display_name": "Pablo Fernandez"
+      },
+      "is_answered": true,
+      "view_count": 3439731,
+      "answer_count": 37,
+      "score": 13745,
+      "creation_date": 1226742669,
+      "question_id": 292357,
+      "body_markdown": "What are the differences between [`git pull`][pull] and [`git fetch`][fetch]?\r\n\r\n\r\n[pull]: https://git-scm.com/docs/git-pull\r\n[fetch]: https://git-scm.com/docs/git-fetch",
+      "title": "What is the difference between 'git pull' and 'git fetch'?"
+    },
+    {
+      "owner": {
+        "reputation": 144450,
+        "user_id": 18300,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/jcyI4.jpg?s=256&g=1",
+        "display_name": "Alex. S."
+      },
+      "is_answered": true,
+      "view_count": 3282913,
+      "answer_count": 50,
+      "score": 12817,
+      "creation_date": 1224800471,
+      "question_id": 231767,
+      "body_markdown": "What is the use of the `yield` keyword in Python? What does it do?\r\n\r\nFor example, I'm trying to understand this code<sup>**1**</sup>:\r\n\r\n    def _get_child_candidates(self, distance, min_dist, max_dist):\r\n        if self._leftchild and distance - max_dist < self._median:\r\n            yield self._leftchild\r\n        if self._rightchild and distance + max_dist >= self._median:\r\n            yield self._rightchild\t\r\n\r\nAnd this is the caller:\r\n\r\n    result, candidates = [], [self]\r\n    while candidates:\r\n        node = candidates.pop()\r\n        distance = node._get_dist(obj)\r\n        if distance <= max_dist and distance >= min_dist:\r\n            result.extend(node._values)\r\n        candidates.extend(node._get_child_candidates(distance, min_dist, max_dist))\r\n    return result\r\n\r\nWhat happens when the method `_get_child_candidates` is called?\r\nIs a list returned? A single element? Is it called again? When will subsequent calls stop?\r\n\r\n\r\n----------\r\n\r\n\r\n<sub>\r\n1. This piece of code was written by Jochen Schulz (jrschulz), who made a great Python library for metric spaces. This is the link to the complete source: <a href=\"https://well-adjusted.de/~jrspieker/mspace/\">Module mspace</a>.</sub> ",
+      "title": "What does the \"yield\" keyword do in Python?"
+    },
+    {
+      "owner": {
+        "reputation": 130095,
+        "user_id": 364969,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/79e7cefc9e7deb0e0bf422baa1a38a2c?s=256&d=identicon&r=PG",
+        "display_name": "Walker"
+      },
+      "is_answered": true,
+      "view_count": 12251764,
+      "answer_count": 151,
+      "score": 11758,
+      "creation_date": 1303597038,
+      "question_id": 5767325,
+      "body_markdown": "How do I remove a specific value from an array? Something like:\r\n\r\n```javascript\r\narray.remove(value);\r\n```\r\n\r\nConstraints: I have to use **core** JavaScript. Frameworks are not allowed.\r\n",
+      "title": "How can I remove a specific item from an array in JavaScript?"
+    },
+    {
+      "owner": {
+        "reputation": 236784,
+        "user_id": 12870,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/f0af40756420859b5b63cbceb6d30505?s=256&d=identicon&r=PG",
+        "display_name": "Oli"
+      },
+      "is_answered": true,
+      "view_count": 3832724,
+      "answer_count": 39,
+      "score": 11514,
+      "creation_date": 1232897119,
+      "question_id": 477816,
+      "body_markdown": "There are many \"standards\" for the [JSON][1] content type:\r\n\r\n```lang-none\r\napplication/json\r\napplication/x-javascript\r\ntext/javascript\r\ntext/x-javascript\r\ntext/x-json\r\n```\r\n\r\nWhich one do I use, and where? I assume security and browser support issues are a factor.\r\n\r\nRelated: [What MIME type if JSON is being returned by a REST API?][2]\r\n\r\n  [1]: http://en.wikipedia.org/wiki/JSON\r\n  [2]: https://stackoverflow.com/questions/404470/what-mime-type-if-json-is-being-returned-by-a-rest-api\r\n",
+      "title": "Which JSON content type do I use?"
+    },
+    {
+      "owner": {
+        "reputation": 123873,
+        "user_id": 338204,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/c145a12cd17d3b3ffff033681a694abe?s=256&d=identicon&r=PG",
+        "display_name": "Forrest"
+      },
+      "is_answered": true,
+      "view_count": 5266448,
+      "answer_count": 40,
+      "score": 11474,
+      "creation_date": 1309922436,
+      "question_id": 6591213,
+      "body_markdown": "How can I rename a local branch which has not yet been pushed to a remote repository?\r\n\r\nRelated:\r\n\r\n - https://stackoverflow.com/questions/1526794/rename-master-branch-for-both-local-and-remote-git-repositories?answertab=votes#tab-top\r\n - https://stackoverflow.com/questions/30590083/how-to-rename-a-remote-git-branch-name/30590238#30590238\r\n\r\n  [1]: https://stackoverflow.com/questions/1526794/git-rename-remote-branch\r\n\r\n",
+      "title": "How can I rename a local Git branch?"
+    },
+    {
+      "owner": {
+        "reputation": 154592,
+        "user_id": 14069,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/0c29cc6ee1c170810ee1fd36fa7c2f95?s=256&d=identicon&r=PG",
+        "display_name": "oz10"
+      },
+      "is_answered": true,
+      "view_count": 5355623,
+      "answer_count": 38,
+      "score": 11244,
+      "creation_date": 1228687066,
+      "question_id": 348170,
+      "body_markdown": "I mistakenly added files to Git using the command:\r\n\r\n    git add myfile.txt\r\n\r\nI have not yet run `git commit`. How do I undo this so that these changes will not be included in the commit?\r\n\r\n",
+      "title": "How do I undo 'git add' before commit?"
+    },
+    {
+      "owner": {
+        "reputation": 496974,
+        "user_id": 87234,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/FkjBe.png?s=256&g=1",
+        "display_name": "GManNickG"
+      },
+      "is_answered": true,
+      "view_count": 995545,
+      "answer_count": 26,
+      "score": 10116,
+      "creation_date": 1256799465,
+      "question_id": 1642028,
+      "body_markdown": "After reading [Hidden Features and Dark Corners of C++/STL][1] on `comp.lang.c++.moderated`, I was completely surprised that the following snippet compiled and worked in both Visual Studio 2008 and G++ 4.4. I would assume this is also valid C since it works in GCC as well.\r\n\r\nHere's the code:\r\n\r\n    #include <stdio.h>\r\n    int main()\r\n    {\r\n        int x = 10;\r\n        while (x --> 0) // x goes to 0\r\n        {\r\n            printf(\"%d \", x);\r\n        }\r\n    }\r\n\r\nOutput:\r\n\r\n    9 8 7 6 5 4 3 2 1 0\r\n\r\nWhere is this defined in the standard, and where has it come from?\r\n\r\n  [1]: http://groups.google.com/group/comp.lang.c++.moderated/msg/33f173780d58dd20",
+      "title": "What is the '-->' operator in C/C++?"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9994
+}
