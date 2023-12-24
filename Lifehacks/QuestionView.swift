@@ -11,15 +11,28 @@ struct QuestionView: View {
   let question: Question
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 8.0) {
-      Text(question.title)
-        .font(.headline)
-      Group {
-        Text("Asked on \(question.creationDate.formatted(date: .long, time: .omitted))")
-        Text("Viewed \(question.viewCount.formatted()) times")
+    HStack(alignment: .top, spacing: 16.0) {
+      VStack(spacing: 8.0) {
+        Button(action: {}, label: {
+          Image(systemName: "arrowtriangle.up.fill")
+        })
+        Text("\(question.score)")
+          .font(.title)
+          .foregroundColor(.secondary)
+        Button(action: {}, label: {
+          Image(systemName: "arrowtriangle.down.fill")
+        })
       }
-      .font(.caption)
-      .foregroundColor(.secondary)
+      VStack(alignment: .leading, spacing: 8.0) {
+        Text(question.title)
+          .font(.headline)
+        Group {
+          Text("Asked on \(question.creationDate.formatted(date: .long, time: .omitted))")
+          Text("Viewed \(question.viewCount.formatted()) times")
+        }
+        .font(.caption)
+        .foregroundColor(.secondary)
+      }
     }
   }
 }
