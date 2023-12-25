@@ -52,6 +52,18 @@ extension QuestionView.Voting {
   }
 }
 
+extension QuestionView.Voting.VoteButton {
+  enum ButtonType: String {
+    case up = "arrowtriangle.up"
+    case down = "arrowtriangle.down"
+
+    func image(highlighted: Bool) -> Image {
+      let imageName = rawValue + (highlighted ? ".fill" : "")
+      return Image(systemName: imageName)
+    }
+  }
+}
+
 // MARK: - Info
 
 extension QuestionView {
