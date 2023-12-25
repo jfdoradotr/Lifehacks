@@ -28,11 +28,11 @@ extension QuestionView {
 
     var body: some View {
       VStack(spacing: 8.0) {
-        VoteButton(imageName: "arrowtriangle.up.fill")
+        VoteButton(buttonType: .up, highlighted: false)
         Text("\(score)")
           .font(.title)
           .foregroundColor(.secondary)
-        VoteButton(imageName: "arrowtriangle.down.fill")
+        VoteButton(buttonType: .down, highlighted: false)
       }
     }
   }
@@ -42,11 +42,14 @@ extension QuestionView {
 
 extension QuestionView.Voting {
   struct VoteButton: View {
-    let imageName: String
+    let buttonType: ButtonType
+    let highlighted: Bool
 
     var body: some View {
       Button(action: {}, label: {
-        Image(systemName: imageName)
+        buttonType.image(highlighted: highlighted)
+          .resizable()
+          .frame(width: 32, height: 32)
       })
     }
   }
