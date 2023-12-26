@@ -116,3 +116,12 @@ extension QuestionView {
 #Preview {
   QuestionView(question: .preview)
 }
+
+#Preview {
+  HStack(spacing: 16.0) {
+    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: true)
+    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: false)
+    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: true)
+    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: false)
+  }
+}
