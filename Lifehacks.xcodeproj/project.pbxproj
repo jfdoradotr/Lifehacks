@@ -16,6 +16,7 @@
 		A91C32562B388962000C0F21 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32552B388962000C0F21 /* QuestionView.swift */; };
 		A91C32582B388AEC000C0F21 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32572B388AEC000C0F21 /* PreviewData.swift */; };
 		A91C325A2B38AAA2000C0F21 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = A91C32592B38AAA2000C0F21 /* Questions.json */; };
+		A993C7B02B3A577700938124 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7AF2B3A577700938124 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A91C32552B388962000C0F21 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		A91C32572B388AEC000C0F21 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		A91C32592B38AAA2000C0F21 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Questions.json; sourceTree = "<group>"; };
+		A993C7AF2B3A577700938124 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				A91C32512B3762EB000C0F21 /* User.swift */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
+				A993C7AF2B3A577700938124 /* Color.swift */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				A91C32562B388962000C0F21 /* QuestionView.swift in Sources */,
 				A91C32462B3762D4000C0F21 /* ContentView.swift in Sources */,
+				A993C7B02B3A577700938124 /* Color.swift in Sources */,
 				A91C32582B388AEC000C0F21 /* PreviewData.swift in Sources */,
 				A91C32542B376312000C0F21 /* Question.swift in Sources */,
 				A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */,
