@@ -64,10 +64,10 @@
 				A91C32452B3762D4000C0F21 /* ContentView.swift */,
 				A91C32432B3762D4000C0F21 /* LifehacksApp.swift */,
 				A91C32532B376312000C0F21 /* Question.swift */,
+				A91C32552B388962000C0F21 /* QuestionView.swift */,
 				A91C32512B3762EB000C0F21 /* User.swift */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
-				A91C32552B388962000C0F21 /* QuestionView.swift */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
