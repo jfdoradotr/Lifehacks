@@ -13,12 +13,18 @@ struct QuestionView: View {
   let question: Question
 
   var body: some View {
-    VStack {
+    VStack(alignment: .leading, spacing: 24.0) {
       HStack(alignment: .top, spacing: 16.0) {
         Voting(score: question.score)
         Info(title: question.title, viewCount: question.viewCount, date: question.creationDate)
       }
       QuestionBody(text: question.body)
+      if let owner = question.owner {
+        Owner(
+          name: owner.name,
+          reputation: owner.reputation,
+          profileImageURL: owner.profileImageURL)
+      }
     }
     .padding(.horizontal, 20.0)
   }
@@ -107,6 +113,41 @@ extension QuestionView {
       )
       Text(markdown)
         .font(.subheadline)
+    }
+  }
+}
+
+// MARK: - Owner
+
+extension QuestionView {
+  struct Owner: View {
+    let name: String
+    let reputation: Int
+    let profileImageURL: URL?
+
+    var body: some View {
+      HStack {
+        AsyncImage(url: profileImageURL) { image in
+            image
+              .resizable()
+              .clipShape(Circle())
+              .overlay(Circle()
+                .stroke(.white, lineWidth: 2))
+        } placeholder: {
+          ProgressView()
+        }
+        .frame(width: 48.0, height: 48.0)
+        VStack(alignment: .leading, spacing: 4.0) {
+          Text(name)
+            .font(.headline)
+          Text("\(reputation.formatted()) reputation")
+            .font(.caption)
+        }
+      }
+      .padding(16)
+      .background(Color.accentColor)
+      .cornerRadius(10.0)
+      .foregroundColor(.white)
     }
   }
 }
