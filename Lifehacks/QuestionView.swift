@@ -16,14 +16,11 @@ struct QuestionView: View {
     VStack(alignment: .leading, spacing: 24.0) {
       HStack(alignment: .top, spacing: 16.0) {
         Voting(score: question.score)
-        Info(title: question.title, viewCount: question.viewCount, date: question.creationDate)
+        Info(question: question)
       }
       QuestionBody(text: question.body)
       if let owner = question.owner {
-        Owner(
-          name: owner.name,
-          reputation: owner.reputation,
-          profileImageURL: owner.profileImageURL)
+        Owner(user: owner)
       }
     }
     .padding(.horizontal, 20.0)
@@ -100,6 +97,14 @@ extension QuestionView {
   }
 }
 
+extension QuestionView.Info {
+  init(question: Question) {
+    title = question.title
+    viewCount = question.viewCount
+    date = question.creationDate
+  }
+}
+
 // MARK: - QuestionBody
 
 extension QuestionView {
@@ -149,6 +154,14 @@ extension QuestionView {
       .cornerRadius(10.0)
       .foregroundColor(.white)
     }
+  }
+}
+
+extension QuestionView.Owner {
+  init(user: User) {
+    name = user.name
+    reputation = user.reputation
+    profileImageURL = user.profileImageURL
   }
 }
 
