@@ -21,6 +21,7 @@ struct QuestionView: View {
       QuestionBody(text: question.body)
       if let owner = question.owner {
         Owner(user: owner)
+          .frame(maxWidth: .infinity, alignment: .trailing)
       }
     }
     .padding(.horizontal, 20.0)
