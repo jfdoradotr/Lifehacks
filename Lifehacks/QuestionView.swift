@@ -135,10 +135,7 @@ extension QuestionView {
       HStack {
         AsyncImage(url: profileImageURL) { image in
             image
-              .resizable()
-              .clipShape(Circle())
-              .overlay(Circle()
-                .stroke(.white, lineWidth: 2))
+            .circular()
         } placeholder: {
           ProgressView()
         }
