@@ -18,6 +18,7 @@
 		A91C325A2B38AAA2000C0F21 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = A91C32592B38AAA2000C0F21 /* Questions.json */; };
 		A993C7B02B3A577700938124 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7AF2B3A577700938124 /* Color.swift */; };
 		A993C7B22B3DEA0300938124 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B12B3DEA0300938124 /* Image.swift */; };
+		A993C7B42B3F971C00938124 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B32B3F971C00938124 /* Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		A91C32592B38AAA2000C0F21 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Questions.json; sourceTree = "<group>"; };
 		A993C7AF2B3A577700938124 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A993C7B12B3DEA0300938124 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		A993C7B32B3F971C00938124 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				A91C32432B3762D4000C0F21 /* LifehacksApp.swift */,
 				A91C32532B376312000C0F21 /* Question.swift */,
 				A91C32552B388962000C0F21 /* QuestionView.swift */,
+				A993C7B32B3F971C00938124 /* Style.swift */,
 				A91C32512B3762EB000C0F21 /* User.swift */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
@@ -166,6 +169,7 @@
 				A91C32582B388AEC000C0F21 /* PreviewData.swift in Sources */,
 				A91C32542B376312000C0F21 /* Question.swift in Sources */,
 				A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */,
+				A993C7B42B3F971C00938124 /* Style.swift in Sources */,
 				A91C32522B3762EB000C0F21 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

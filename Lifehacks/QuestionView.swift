@@ -148,9 +148,7 @@ extension QuestionView {
         }
       }
       .padding(16)
-      .background(Color.accentColor)
-      .cornerRadius(10.0)
-      .foregroundColor(.white)
+      .style(color: .accentColor)
     }
   }
 }
