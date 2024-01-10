@@ -167,11 +167,18 @@ extension QuestionView.Owner {
   QuestionView(question: .preview)
 }
 
-#Preview {
+#Preview("Vote Button", traits: .sizeThatFitsLayout) {
   HStack(spacing: 16.0) {
     QuestionView.Voting.VoteButton(buttonType: .up, highlighted: true)
     QuestionView.Voting.VoteButton(buttonType: .up, highlighted: false)
     QuestionView.Voting.VoteButton(buttonType: .down, highlighted: true)
     QuestionView.Voting.VoteButton(buttonType: .down, highlighted: false)
   }
+}
+
+#Preview("Accessibility") {
+  QuestionView(question: .preview)
+    .previewDevice(.init(rawValue: "iPhone SE (3rd generation)"))
+    .preferredColorScheme(.dark)
+    .dynamicTypeSize(.xxxLarge)
 }
