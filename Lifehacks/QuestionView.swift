@@ -15,7 +15,11 @@ struct QuestionView: View {
   var body: some View {
     VStack(alignment: .leading, spacing: 24.0) {
       HStack(alignment: .top, spacing: 16.0) {
-        Voting(score: question.score)
+        Voting(
+          score: question.score,
+          upvote: { question.upvote() },
+          downvote: { question.downvote() }
+        )
         Info(question: question)
       }
       QuestionBody(text: question.body)
@@ -33,14 +37,16 @@ struct QuestionView: View {
 extension QuestionView {
   struct Voting: View {
     let score: Int
+    let upvote: () -> Void
+    let downvote: () -> Void
 
     var body: some View {
       VStack(spacing: 8.0) {
-        VoteButton(buttonType: .up, highlighted: false)
+        VoteButton(buttonType: .up, highlighted: false, action: upvote)
         Text("\(score)")
           .font(.title)
           .foregroundColor(.secondary)
-        VoteButton(buttonType: .down, highlighted: false)
+        VoteButton(buttonType: .down, highlighted: false, action: downvote)
       }
     }
   }
@@ -52,13 +58,14 @@ extension QuestionView.Voting {
   struct VoteButton: View {
     let buttonType: ButtonType
     let highlighted: Bool
+    let action: () -> Void
 
     var body: some View {
-      Button(action: {}, label: {
+      Button(action: action) {
         buttonType.image(highlighted: highlighted)
           .resizable()
           .frame(width: 32, height: 32)
-      })
+      }
     }
   }
 }
@@ -169,10 +176,10 @@ extension QuestionView.Owner {
 
 #Preview("Vote Button", traits: .sizeThatFitsLayout) {
   HStack(spacing: 16.0) {
-    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: true)
-    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: false)
-    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: true)
-    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: false)
+    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: true, action: {})
+    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: false, action: {})
+    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: true, action: {})
+    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: false, action: {})
   }
 }
 
