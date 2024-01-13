@@ -19,7 +19,8 @@ struct QuestionView: View {
           score: question.score,
           vote: .init(vote: question.vote),
           upvote: { question.upvote() },
-          downvote: { question.downvote() }
+          downvote: { question.downvote() },
+          unvote: { question.unvote() }
         )
         Info(question: question)
       }
@@ -41,6 +42,7 @@ extension QuestionView {
     let vote: Vote?
     let upvote: () -> Void
     let downvote: () -> Void
+    let unvote: () -> Void
 
     enum Vote {
       case up, down
@@ -48,11 +50,23 @@ extension QuestionView {
 
     var body: some View {
       VStack(spacing: 8.0) {
-        VoteButton(buttonType: .up, highlighted: vote == .up, action: upvote)
+        VoteButton(buttonType: .up, highlighted: vote == .up) {
+          cast(vote: .up)
+        }
         Text("\(score)")
           .font(.title)
           .foregroundColor(.secondary)
-        VoteButton(buttonType: .down, highlighted: vote == .down, action: downvote)
+        VoteButton(buttonType: .down, highlighted: vote == .down) {
+          cast(vote: .down)
+        }
+      }
+    }
+
+    private func cast(vote: Vote) {
+      switch (self.vote, vote) {
+      case (nil, .up), (.down, .up): upvote()
+      case (nil, .down), (.up, .down): downvote()
+      default: unvote()
       }
     }
   }
