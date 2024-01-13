@@ -13,6 +13,23 @@ struct EditProfileView: View {
   }
 }
 
+extension EditProfileView {
+  struct ErrorMessage: View {
+    let text: String
+
+    init(_ text: String) {
+      self.text = text
+    }
+
+    var body: some View {
+      Text(text)
+        .font(.footnote)
+        .bold()
+        .foregroundColor(.orange)
+    }
+  }
+}
+
 #Preview {
   EditProfileView()
 }
