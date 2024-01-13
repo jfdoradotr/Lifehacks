@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - QuestionView
 
 struct QuestionView: View {
-  let question: Question
+  @State var question: Question
 
   var body: some View {
     VStack(alignment: .leading, spacing: 24.0) {
