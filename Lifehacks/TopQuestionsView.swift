@@ -18,6 +18,7 @@ struct TopQuestionsView: View {
           Row(question: question)
         }
         .onDelete(perform: deleteItems(atOffsets:))
+        .onMove(perform: move(fromOffsets:atOffsets:))
       }
       .listStyle(.plain)
     }
@@ -25,6 +26,10 @@ struct TopQuestionsView: View {
 
   func deleteItems(atOffsets offsets: IndexSet) {
     questions.remove(atOffsets: offsets)
+  }
+
+  func move(fromOffsets source: IndexSet, atOffsets destination: Int) {
+    questions.move(fromOffsets: source, toOffset: destination)
   }
 }
 
