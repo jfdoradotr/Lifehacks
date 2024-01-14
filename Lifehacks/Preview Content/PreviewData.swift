@@ -26,6 +26,12 @@ extension Question {
 
 extension User {
   static var preview: User {
-    Question.preview.owner!
+    User(
+      id: 0,
+      reputation: 0,
+      name: "Claude Bluebeard",
+      aboutMe: "The monkey-rope is found in all whalers; but it was only in the Pequod that the monkey and his holder were ever tied together. This improvement upon the original usage was introduced by no less a man than Stubb, in order to afford the imperilled harpooneer the strongest possible guarantee for the faithfulness and vigilance of his monkey-rope holder.",
+      profileImageURL: Bundle.main.url(forResource: "Avatar", withExtension: "jpg")!
+    )
   }
 }
