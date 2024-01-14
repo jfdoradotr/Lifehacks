@@ -53,8 +53,8 @@ extension TopQuestionsView.Row {
 
     var body: some View {
       VStack(alignment: .leading, spacing: 4.0) {
-        Text("Viewed \(viewCount.formatted()) times")
-        Text("Asked on \(date.formatted(date: .long, time: .omitted))")
+        Text(viewCount: viewCount)
+        Text(date: date)
         Text(name)
       }
       .font(.caption)

@@ -20,6 +20,7 @@
 		A95A4F9A2B535C0B004CC43B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4F992B535C0B004CC43B /* View.swift */; };
 		A95A4F9D2B536109004CC43B /* Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A95A4F9C2B536109004CC43B /* Avatar.jpg */; };
 		A95A4F9F2B544C70004CC43B /* TopQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4F9E2B544C70004CC43B /* TopQuestionsView.swift */; };
+		A95A4FA12B544E88004CC43B /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FA02B544E88004CC43B /* Text.swift */; };
 		A993C7B02B3A577700938124 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7AF2B3A577700938124 /* Color.swift */; };
 		A993C7B22B3DEA0300938124 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B12B3DEA0300938124 /* Image.swift */; };
 		A993C7B42B3F971C00938124 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B32B3F971C00938124 /* Style.swift */; };
@@ -40,6 +41,7 @@
 		A95A4F992B535C0B004CC43B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A95A4F9C2B536109004CC43B /* Avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Avatar.jpg; sourceTree = "<group>"; };
 		A95A4F9E2B544C70004CC43B /* TopQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopQuestionsView.swift; sourceTree = "<group>"; };
+		A95A4FA02B544E88004CC43B /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		A993C7AF2B3A577700938124 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A993C7B12B3DEA0300938124 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A993C7B32B3F971C00938124 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				A993C7AF2B3A577700938124 /* Color.swift */,
 				A993C7B12B3DEA0300938124 /* Image.swift */,
+				A95A4FA02B544E88004CC43B /* Text.swift */,
 				A95A4F992B535C0B004CC43B /* View.swift */,
 			);
 			path = Extensions;
@@ -191,6 +194,7 @@
 				A993C7B02B3A577700938124 /* Color.swift in Sources */,
 				A91C32582B388AEC000C0F21 /* PreviewData.swift in Sources */,
 				A91C32542B376312000C0F21 /* Question.swift in Sources */,
+				A95A4FA12B544E88004CC43B /* Text.swift in Sources */,
 				A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */,
 				A993C7B42B3F971C00938124 /* Style.swift in Sources */,
 				A95A4F9A2B535C0B004CC43B /* View.swift in Sources */,
