@@ -52,6 +52,35 @@ extension EditProfileView {
   }
 }
 
+// MARK: - Header
+
+extension EditProfileView {
+  struct Header: View {
+    @Binding var name: String
+    var profileImageURL: URL?
+
+    var body: some View {
+      HStack(alignment: .top) {
+        AsyncImage(url: profileImageURL) { image in
+          image.circular(borderColor: .gray)
+        } placeholder: {
+          ProgressView()
+        }
+        .frame(width: 62.0, height: 62.0)
+        VStack(alignment: .leading) {
+          TextField("Name", text: $name)
+          Divider()
+          EditProfileView.ErrorMessage("The name cannot be empty")
+            .visible(name.isEmpty)
+        }
+        .padding(.leading, 16.0)
+      }
+    }
+  }
+}
+
+// MARK: - Previews
+
 #Preview {
   EditProfileView()
 }
