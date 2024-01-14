@@ -42,6 +42,20 @@ extension TopQuestionsView {
   }
 }
 
+extension TopQuestionsView.Row {
+  init(question: Question) {
+    self.init(
+      title: question.title,
+      score: question.score,
+      answerCount: question.answerCount,
+      viewCount: question.viewCount,
+      date: question.creationDate,
+      name: question.owner?.name ?? "",
+      isAnswered: question.isAnswered
+    )
+  }
+}
+
 // MARK: - Counter
 
 extension TopQuestionsView.Row {
