@@ -17,8 +17,27 @@ struct TopQuestionsView: View {
 
 extension TopQuestionsView {
   struct Row: View {
+    let title: String
+    let score: Int
+    let answerCount: Int
+    let viewCount: Int
+    let date: Date
+    let name: String
+    let isAnswered: Bool
+
     var body: some View {
-      Text("Hello, World!")
+      VStack(alignment: .leading, spacing: 8) {
+        Text(title)
+          .font(.headline)
+        HStack(alignment: .center, spacing: 16) {
+          Counter(count: score, label: "votes")
+            .style(color: .accentColor)
+          Counter(count: answerCount, label: "answers")
+            .style(color: .pizazz, isFilled: isAnswered)
+          Details(viewCount: viewCount, date: date, name: name)
+        }
+        .padding(.vertical, 8)
+      }
     }
   }
 }
