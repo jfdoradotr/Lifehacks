@@ -101,3 +101,10 @@ extension TopQuestionsView.Row {
 #Preview {
     TopQuestionsView()
 }
+
+#Preview("Rows") {
+  VStack {
+    TopQuestionsView.Row(question: .preview)
+    TopQuestionsView.Row(question: .unanswered)
+  }
+}

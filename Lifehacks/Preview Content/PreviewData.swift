@@ -22,6 +22,20 @@ extension Question {
   static var preview: Question {
     [Question].preview[0]
   }
+
+  static var unanswered: Question {
+    Question(
+      isAnswered: false,
+      id: Question.preview.id,
+      viewCount: Question.preview.viewCount,
+      answerCount: Question.preview.answerCount,
+      title: Question.preview.title,
+      body: Question.preview.body,
+      creationDate: Question.preview.creationDate,
+      owner: Question.preview.owner,
+      score: Question.preview.score
+    )
+  }
 }
 
 extension User {
