@@ -93,6 +93,10 @@ extension EditProfileView {
 
 // MARK: - Previews
 
+#Preview {
+  EditProfileView(user: .preview)
+}
+
 #Preview("Interactive Views") {
   struct PreviewContainer: View {
     @State private var name: String = User.preview.name
