@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct TopQuestionsView: View {
-  let questions: [Question]
+  @State var questions: [Question]
 
   var body: some View {
-    List(questions) { question in
-      Row(question: question)
+    List {
+      ForEach(questions) { question in
+        Row(question: question)
+      }
+      .onDelete(perform: deleteItems(atOffsets:))
     }
     .listStyle(.plain)
+  }
+
+  func deleteItems(atOffsets offsets: IndexSet) {
+    questions.remove(atOffsets: offsets)
   }
 }
 
