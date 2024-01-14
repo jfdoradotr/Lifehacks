@@ -10,8 +10,8 @@ import Foundation
 struct User {
   let id: Int
   let reputation: Int
-  let name: String
-  let aboutMe: String?
+  var name: String
+  var aboutMe: String?
   let profileImageURL: URL?
 }
 
