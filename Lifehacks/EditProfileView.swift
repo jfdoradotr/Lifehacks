@@ -11,13 +11,17 @@ struct EditProfileView: View {
   @State var user: User
 
   var body: some View {
-    Header(name: $user.name, profileImageURL: user.profileImageURL)
-    AboutMe(
-      text: Binding(
-        get: { user.aboutMe ?? "" },
-        set: { text in user.aboutMe = text }
+    VStack {
+      Header(name: $user.name, profileImageURL: user.profileImageURL)
+      AboutMe(
+        text: Binding(
+          get: { user.aboutMe ?? "" },
+          set: { text in user.aboutMe = text }
+        )
       )
-    )
+    }
+    .padding(20.0)
+    .animation(.default, value: user)
   }
 }
 
