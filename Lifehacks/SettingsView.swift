@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct SettingsView: View {
+  @State var selectedThemeID: String? = Theme.default.id
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    List(selection: $selectedThemeID) {
+      Section(header: Text("APP THEME")) {
+        ForEach(Theme.allThemes) { theme in
+          Row(theme: theme)
+            .listRowInsets(.init(
+              top: 16.0,
+              leading: 16.0,
+              bottom: 16.0,
+              trailing: 16.0)
+            )
+        }
+      }
+    }
   }
 }
 
