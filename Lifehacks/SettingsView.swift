@@ -14,13 +14,14 @@ struct SettingsView: View {
     List(selection: $selectedThemeID) {
       Section(header: Text("APP THEME")) {
         ForEach(Theme.allThemes) { theme in
-          Row(theme: theme)
+          Row(theme: theme, isSelected: theme.id == selectedThemeID)
             .listRowInsets(.init(
               top: 16.0,
               leading: 16.0,
               bottom: 16.0,
               trailing: 16.0)
             )
+            .listRowBackground(Color(uiColor: .systemBackground))
         }
       }
     }
@@ -32,6 +33,7 @@ struct SettingsView: View {
 extension SettingsView {
   struct Row: View {
     let theme: Theme
+    let isSelected: Bool
 
     var body: some View {
       LabeledContent {
@@ -42,7 +44,12 @@ extension SettingsView {
         Placeholder(imageName: "leaf")
           .style(color: theme.secondaryColor, isFilled: false)
       } label: {
-        Text(theme.name)
+        HStack {
+          Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+            .font(.title)
+            .foregroundColor(isSelected ? theme.accentColor : .secondary)
+          Text(theme.name)
+        }
       }
       .font(.headline)
       .foregroundColor(.primary)
