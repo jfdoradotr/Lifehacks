@@ -24,7 +24,7 @@ struct QuestionView: View {
         )
         Info(question: question)
       }
-      QuestionBody(text: question.body)
+      MarkdownBody(text: question.body)
       if let owner = question.owner {
         Owner(user: owner)
           .frame(maxWidth: .infinity, alignment: .trailing)
@@ -65,10 +65,10 @@ extension QuestionView.Info {
   }
 }
 
-// MARK: - QuestionBody
+// MARK: - MarkdownBody
 
 extension QuestionView {
-  struct QuestionBody: View {
+  struct MarkdownBody: View {
     let text: String
 
     var body: some View {
