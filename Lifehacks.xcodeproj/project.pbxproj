@@ -91,14 +91,14 @@
 		A91C32422B3762D4000C0F21 /* Lifehacks */ = {
 			isa = PBXGroup;
 			children = (
-				A95A4FB02B55A68C004CC43B /* Questions and Answers */,
 				A91C32452B3762D4000C0F21 /* ContentView.swift */,
-				A95A4FB12B55A73E004CC43B /* Users and Profiles */,
 				A91C32432B3762D4000C0F21 /* LifehacksApp.swift */,
-				A95A4FB22B55A79B004CC43B /* Settings and Styling */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A95A4F9B2B535C23004CC43B /* Extensions */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
+				A95A4FB02B55A68C004CC43B /* Questions and Answers */,
+				A95A4FB22B55A79B004CC43B /* Settings and Styling */,
+				A95A4FB12B55A73E004CC43B /* Users and Profiles */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
