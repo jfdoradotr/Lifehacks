@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Answer: Identifiable {
+struct Answer: Identifiable, Votable {
   let id: Int
   let body: String
   let creationDate: Date

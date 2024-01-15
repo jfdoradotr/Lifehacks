@@ -73,7 +73,7 @@ extension QuestionView {
 }
 
 extension QuestionView.Voting.Vote {
-  init?(vote: Question.Vote?) {
+  init?(vote: Vote?) {
     switch vote {
     case .up: self = .up
     case .down: self = .down

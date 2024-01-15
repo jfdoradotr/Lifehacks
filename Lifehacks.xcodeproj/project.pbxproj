@@ -24,6 +24,7 @@
 		A95A4FA32B54C0E4004CC43B /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FA22B54C0E4004CC43B /* Theme.swift */; };
 		A95A4FA52B54C19E004CC43B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FA42B54C19E004CC43B /* SettingsView.swift */; };
 		A95A4FA72B54C599004CC43B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FA62B54C599004CC43B /* Answer.swift */; };
+		A95A4FA92B54C784004CC43B /* Votable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FA82B54C784004CC43B /* Votable.swift */; };
 		A993C7B02B3A577700938124 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7AF2B3A577700938124 /* Color.swift */; };
 		A993C7B22B3DEA0300938124 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B12B3DEA0300938124 /* Image.swift */; };
 		A993C7B42B3F971C00938124 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B32B3F971C00938124 /* Style.swift */; };
@@ -48,6 +49,7 @@
 		A95A4FA22B54C0E4004CC43B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A95A4FA42B54C19E004CC43B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A95A4FA62B54C599004CC43B /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		A95A4FA82B54C784004CC43B /* Votable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Votable.swift; sourceTree = "<group>"; };
 		A993C7AF2B3A577700938124 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A993C7B12B3DEA0300938124 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A993C7B32B3F971C00938124 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				A95A4FA22B54C0E4004CC43B /* Theme.swift */,
 				A95A4F9E2B544C70004CC43B /* TopQuestionsView.swift */,
 				A91C32512B3762EB000C0F21 /* User.swift */,
+				A95A4FA82B54C784004CC43B /* Votable.swift */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A95A4F9B2B535C23004CC43B /* Extensions */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
@@ -209,6 +212,7 @@
 				A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */,
 				A993C7B42B3F971C00938124 /* Style.swift in Sources */,
 				A95A4F9A2B535C0B004CC43B /* View.swift in Sources */,
+				A95A4FA92B54C784004CC43B /* Votable.swift in Sources */,
 				A91C32522B3762EB000C0F21 /* User.swift in Sources */,
 				A95A4FA32B54C0E4004CC43B /* Theme.swift in Sources */,
 			);
