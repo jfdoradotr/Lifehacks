@@ -10,58 +10,8 @@ import SwiftUI
 // MARK: - QuestionView
 
 struct QuestionView: View {
-  @State var question: Question
-
   var body: some View {
-    VStack(alignment: .leading, spacing: 24.0) {
-      HStack(alignment: .top, spacing: 16.0) {
-        Voting(
-          score: question.score,
-          vote: .init(vote: question.vote),
-          upvote: { question.upvote() },
-          downvote: { question.downvote() },
-          unvote: { question.unvote() }
-        )
-        Info(question: question)
-      }
-      MarkdownBody(text: question.body)
-      if let owner = question.owner {
-        Owner(user: owner)
-          .frame(maxWidth: .infinity, alignment: .trailing)
-      }
-    }
-    .padding(.horizontal, 20.0)
-  }
-}
-
-// MARK: - Info
-
-extension QuestionView {
-  struct Info: View {
-    let title: String
-    let viewCount: Int
-    let date: Date
-
-    var body: some View {
-      VStack(alignment: .leading, spacing: 8.0) {
-        Text(title)
-          .font(.headline)
-        Group {
-          Text(date: date)
-          Text(viewCount: viewCount)
-        }
-        .font(.caption)
-        .foregroundColor(.secondary)
-      }
-    }
-  }
-}
-
-extension QuestionView.Info {
-  init(question: Question) {
-    title = question.title
-    viewCount = question.viewCount
-    date = question.creationDate
+    Text("Hello, World!")
   }
 }
 
@@ -122,12 +72,8 @@ extension QuestionView.Owner {
 
 // MARK: - Preview
 
-#Preview {
-  QuestionView(question: .preview)
-}
-
 #Preview("Accessibility") {
-  QuestionView(question: .preview)
+  QuestionView.QuestionDetails(question: .constant(.preview))
     .previewDevice(.init(rawValue: "iPhone SE (3rd generation)"))
     .preferredColorScheme(.dark)
     .dynamicTypeSize(.xxxLarge)
