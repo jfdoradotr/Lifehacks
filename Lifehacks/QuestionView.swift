@@ -10,8 +10,11 @@ import SwiftUI
 // MARK: - QuestionView
 
 struct QuestionView: View {
+  @State var question: Question
+
   var body: some View {
-    Text("Hello, World!")
+    QuestionDetails(question: $question)
+      .padding(.horizontal, 20.0)
   }
 }
 
