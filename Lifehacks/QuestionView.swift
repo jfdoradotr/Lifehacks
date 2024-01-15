@@ -13,8 +13,16 @@ struct QuestionView: View {
   @State var question: Question
 
   var body: some View {
-    QuestionDetails(question: $question)
-      .padding(.horizontal, 20.0)
+    List {
+      QuestionDetails(question: $question)
+        .padding(.bottom)
+      ForEach($question.answers) { $answer in
+        AnswerDetails(answer: $answer)
+          .padding(.vertical, 24.0)
+          .id(answer.id)
+      }
+    }
+    .listStyle(.plain)
   }
 }
 
@@ -74,6 +82,10 @@ extension QuestionView.Owner {
 }
 
 // MARK: - Preview
+
+#Preview {
+  QuestionView(question: .preview)
+}
 
 #Preview("Accessibility") {
   QuestionView.QuestionDetails(question: .constant(.preview))

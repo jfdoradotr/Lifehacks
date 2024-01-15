@@ -18,7 +18,7 @@ struct Question: Identifiable, Votable {
   let owner: User?
   var score: Int
   var vote: Vote?
-  let answers: [Answer]
+  var answers: [Answer]
 }
 
 extension Question: Decodable {
