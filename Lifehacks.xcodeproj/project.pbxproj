@@ -95,9 +95,7 @@
 				A91C32452B3762D4000C0F21 /* ContentView.swift */,
 				A95A4FB12B55A73E004CC43B /* Users and Profiles */,
 				A91C32432B3762D4000C0F21 /* LifehacksApp.swift */,
-				A95A4FA42B54C19E004CC43B /* SettingsView.swift */,
-				A993C7B32B3F971C00938124 /* Style.swift */,
-				A95A4FA22B54C0E4004CC43B /* Theme.swift */,
+				A95A4FB22B55A79B004CC43B /* Settings and Styling */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A95A4F9B2B535C23004CC43B /* Extensions */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
@@ -119,7 +117,6 @@
 		A95A4F9B2B535C23004CC43B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A993C7AF2B3A577700938124 /* Color.swift */,
 				A993C7B12B3DEA0300938124 /* Image.swift */,
 			);
 			path = Extensions;
@@ -149,6 +146,17 @@
 				A95A4F992B535C0B004CC43B /* View+Visibility.swift */,
 			);
 			path = "Users and Profiles";
+			sourceTree = "<group>";
+		};
+		A95A4FB22B55A79B004CC43B /* Settings and Styling */ = {
+			isa = PBXGroup;
+			children = (
+				A993C7AF2B3A577700938124 /* Color.swift */,
+				A95A4FA42B54C19E004CC43B /* SettingsView.swift */,
+				A993C7B32B3F971C00938124 /* Style.swift */,
+				A95A4FA22B54C0E4004CC43B /* Theme.swift */,
+			);
+			path = "Settings and Styling";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
