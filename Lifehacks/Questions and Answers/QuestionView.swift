@@ -24,6 +24,7 @@ struct QuestionView: View {
     }
     .listStyle(.plain)
     .buttonStyle(.borderless)
+    .navigationTitle("Question")
   }
 }
 
