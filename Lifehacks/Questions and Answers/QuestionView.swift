@@ -54,12 +54,7 @@ extension QuestionView {
 
     var body: some View {
       HStack {
-        AsyncImage(url: profileImageURL) { image in
-            image
-            .circular()
-        } placeholder: {
-          ProgressView()
-        }
+        AsyncProfileImage(url: profileImageURL)
         .frame(width: 48.0, height: 48.0)
         VStack(alignment: .leading, spacing: 4.0) {
           Text(name)
