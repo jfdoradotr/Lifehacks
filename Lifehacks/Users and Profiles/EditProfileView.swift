@@ -9,22 +9,31 @@ import SwiftUI
 import PhotosUI
 
 struct EditProfileView: View {
-  @State var user: User
+  let user: User
   let onEditingFinished: () -> Void
 
+  @State private var name: String
+  @State private var aboutMe: String?
   @State private var photosItem: PhotosPickerItem?
+
+  init(user: User, onEditingFinished: @escaping () -> Void) {
+    self.user = user
+    self.onEditingFinished = onEditingFinished
+    self._name = .init(initialValue: user.name)
+    self._aboutMe = .init(initialValue: user.aboutMe ?? "")
+  }
 
   var body: some View {
     ScrollView {
       Header(
-        name: $user.name,
+        name: $name,
         photosItem: $photosItem,
         profileImageURL: user.profileImageURL
       )
       AboutMe(
         text: Binding(
-          get: { user.aboutMe ?? "" },
-          set: { text in user.aboutMe = text }
+          get: { aboutMe ?? "" },
+          set: { text in aboutMe = text }
         )
       )
     }
