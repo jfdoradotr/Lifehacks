@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Equatable {
+struct User: Hashable {
   let id: Int
   let reputation: Int
   var name: String
