@@ -12,12 +12,18 @@ struct ContentView: View {
 
   var body: some View {
     TabView {
-      TopQuestionsView(questions: .preview)
-        .tabItem { Label("Top Questions", systemImage: "list.number") }
-      ProfileView(user: .preview)
-        .tabItem { Label("Profile", systemImage: "person.circle") }
-      SettingsView()
-        .tabItem { Label("Settings", systemImage: "gear") }
+      NavigationStack {
+        TopQuestionsView(questions: .preview)
+      }
+      .tabItem { Label("Top Questions", systemImage: "list.number") }
+      NavigationStack {
+        ProfileView(user: .preview)
+      }
+      .tabItem { Label("Profile", systemImage: "person.circle") }
+      NavigationStack {
+        SettingsView()
+      }
+      .tabItem { Label("Settings", systemImage: "gear") }
     }
   }
 }
