@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Question: Identifiable, Votable {
+struct Question: Identifiable, Hashable, Votable {
   let isAnswered: Bool
   let id: Int
   let viewCount: Int

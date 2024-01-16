@@ -13,7 +13,7 @@ struct TopQuestionsView: View {
   var body: some View {
     List {
       ForEach(questions) { question in
-        NavigationLink(destination: QuestionView(question: question)) {
+        NavigationLink(value: question) {
           Row(question: question)
         }
       }
@@ -26,6 +26,9 @@ struct TopQuestionsView: View {
       ToolbarItem(placement: .primaryAction) {
         EditButton()
       }
+    }
+    .navigationDestination(for: Question.self) { question in
+      QuestionView(question: question)
     }
   }
 
