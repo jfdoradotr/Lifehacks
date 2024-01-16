@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditProfileView: View {
   @State var user: User
   let onEditingFinished: () -> Void
 
+  @State private var photosItem: PhotosPickerItem?
+
   var body: some View {
     ScrollView {
-      Header(name: $user.name, profileImageURL: user.profileImageURL)
+      Header(
+        name: $user.name,
+        photosItem: $photosItem,
+        profileImageURL: user.profileImageURL
+      )
       AboutMe(
         text: Binding(
           get: { user.aboutMe ?? "" },
@@ -79,12 +86,18 @@ extension EditProfileView {
 extension EditProfileView {
   struct Header: View {
     @Binding var name: String
+    @Binding var photosItem: PhotosPickerItem?
     var profileImageURL: URL?
 
     var body: some View {
       HStack(alignment: .top) {
         AsyncProfileImage(url: profileImageURL, borderColor: .gray)
         .frame(width: 62.0, height: 62.0)
+        .overlay {
+          PhotosPicker("Edit", selection: $photosItem)
+            .bold()
+            .foregroundColor(.white)
+        }
         VStack(alignment: .leading) {
           TextField("Name", text: $name)
           Divider()
@@ -114,6 +127,7 @@ extension EditProfileView {
       VStack {
         EditProfileView.Header(
           name: $name,
+          photosItem: .constant(nil),
           profileImageURL: User.preview.profileImageURL
         )
         EditProfileView.AboutMe(text: $aboutMe)
