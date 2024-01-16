@@ -13,7 +13,9 @@ struct TopQuestionsView: View {
   var body: some View {
     List {
       ForEach(questions) { question in
-        Row(question: question)
+        NavigationLink(destination: QuestionView(question: question)) {
+          Row(question: question)
+        }
       }
       .onDelete(perform: deleteItems(atOffsets:))
       .onMove(perform: move(fromOffsets:atOffsets:))
