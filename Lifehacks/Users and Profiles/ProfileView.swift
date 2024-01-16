@@ -13,6 +13,35 @@ struct ProfileView: View {
   }
 }
 
+// MARK: - Header
+
+extension ProfileView {
+  struct Header: View {
+    let name: String
+    let reputation: Int
+    let profileImageURL: URL?
+    let isMainUser: Bool
+
+    var body: some View {
+      VStack(spacing: 4.0) {
+        AsyncProfileImage(url: profileImageURL)
+          .frame(width: 144, height: 144)
+        Text(name)
+          .font(.title)
+          .bold()
+          .padding(.top, 12.0)
+        Text("\(reputation.formatted()) reputation")
+          .font(.headline)
+      }
+      .frame(maxWidth: .infinity)
+      .padding([.top, .bottom], 24)
+      .style(color: isMainUser ? .accentColor : .pizazz, isRounded: false)
+    }
+  }
+}
+
+// MARK: - Previews
+
 #Preview {
   ProfileView()
 }
