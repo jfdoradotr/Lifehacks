@@ -43,9 +43,7 @@ struct EditProfileView: View {
     .navigationTitle("Edit Profile")
     .toolbar {
       cancelButton
-      ToolbarItem(placement: .confirmationAction) {
-        Button("Save", action: onEditingFinished)
-      }
+      saveButton
     }
     .alert("Do you want to discard your edits?", isPresented: $isDiscarding) {
       Button("Discard changes", role: .destructive, action: onEditingFinished)
@@ -70,6 +68,12 @@ private extension EditProfileView {
           onEditingFinished()
         }
       }
+    }
+  }
+
+  var saveButton: some ToolbarContent {
+    ToolbarItem(placement: .confirmationAction) {
+      Button("Save", action: onEditingFinished)
     }
   }
 }
