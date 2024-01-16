@@ -78,6 +78,24 @@ extension QuestionView.Owner {
   }
 }
 
+// MARK: - OwnerLink
+
+extension QuestionView {
+  struct OwnerLink: View {
+    let user: User?
+
+    var body: some View {
+      if let user {
+        NavigationLink(value: user) {
+          QuestionView.Owner(user: user)
+            .style(color: .accentColor)
+            .frame(width: .infinity, alignment: .trailing)
+        }
+      }
+    }
+  }
+}
+
 // MARK: - Preview
 
 #Preview {

@@ -32,11 +32,7 @@ extension QuestionView {
           Text(date: answer.creationDate, prefix: "Answered on")
             .font(.caption)
             .foregroundColor(.secondary)
-          if let owner = answer.owner {
-            QuestionView.Owner(user: owner)
-              .style(color: .pizazz)
-              .frame(maxWidth: .infinity, alignment: .trailing)
-          }
+          QuestionView.OwnerLink(user: answer.owner)
         }
       }
     }
