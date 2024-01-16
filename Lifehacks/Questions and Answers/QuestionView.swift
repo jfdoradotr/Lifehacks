@@ -25,6 +25,9 @@ struct QuestionView: View {
     .listStyle(.plain)
     .buttonStyle(.borderless)
     .navigationTitle("Question")
+    .navigationDestination(for: User.self) { user in
+      ProfileView(user: user)
+    }
   }
 }
 
