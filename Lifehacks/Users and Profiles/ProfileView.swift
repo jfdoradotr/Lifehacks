@@ -10,6 +10,8 @@ import SwiftUI
 struct ProfileView: View {
   let user: User
 
+  @State private var isEditing = false
+
   var body: some View {
     ScrollView {
       Header(user: user, isMainUser: isMainUser)
@@ -18,6 +20,15 @@ struct ProfileView: View {
         .padding(.horizontal, 20.0)
     }
     .navigationTitle(Text("Profile"))
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        if isMainUser {
+          Button(action: { isEditing = true }, label: {
+            Text("Edit")
+          })
+        }
+      }
+    }
   }
 }
 
