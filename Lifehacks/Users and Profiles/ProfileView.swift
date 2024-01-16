@@ -40,8 +40,26 @@ extension ProfileView {
   }
 }
 
+extension ProfileView.Header {
+  init(user: User, isMainUser: Bool) {
+    self.init(
+      name: user.name,
+      reputation: user.reputation,
+      profileImageURL: user.profileImageURL,
+      isMainUser: isMainUser
+    )
+  }
+}
+
 // MARK: - Previews
 
 #Preview {
   ProfileView()
+}
+
+#Preview("Header") {
+  VStack {
+    ProfileView.Header(user: .preview, isMainUser: true)
+    ProfileView.Header(user: .preview, isMainUser: false)
+  }
 }
