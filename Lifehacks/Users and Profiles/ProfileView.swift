@@ -29,6 +29,11 @@ struct ProfileView: View {
         }
       }
     }
+    .fullScreenCover(isPresented: $isEditing) {
+      NavigationStack {
+        EditProfileView(user: user)
+      }
+    }
   }
 }
 
