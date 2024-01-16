@@ -13,17 +13,23 @@ struct QuestionView: View {
   @State var question: Question
 
   var body: some View {
-    List {
-      QuestionDetails(question: $question)
-        .padding(.bottom)
-      ForEach($question.answers) { $answer in
-        AnswerDetails(answer: $answer)
-          .padding(.vertical, 24.0)
-          .id(answer.id)
+    ScrollView {
+      LazyVStack {
+        QuestionDetails(question: $question)
+          .padding(.bottom)
+        Divider()
+          .padding(.leading, 20.0)
+        ForEach($question.answers) { $answer in
+          AnswerDetails(answer: $answer)
+            .padding(.horizontal, 24.0)
+            .padding(.vertical, 24.0)
+            .id(answer.id)
+          Divider()
+            .padding(.leading, 20.0)
+        }
       }
     }
-    .listStyle(.plain)
-    .buttonStyle(.borderless)
+    .padding(.top)
     .navigationTitle("Question")
     .navigationDestination(for: User.self) { user in
       ProfileView(user: user)
