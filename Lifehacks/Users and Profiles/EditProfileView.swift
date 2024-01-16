@@ -15,6 +15,7 @@ struct EditProfileView: View {
   @State private var name: String
   @State private var aboutMe: String?
   @State private var photosItem: PhotosPickerItem?
+  @State private var isDiscarding: Bool = false
 
   init(user: User, onEditingFinished: @escaping () -> Void) {
     self.user = user
@@ -41,11 +42,33 @@ struct EditProfileView: View {
     .animation(.default, value: user)
     .navigationTitle("Edit Profile")
     .toolbar {
-      ToolbarItem(placement: .cancellationAction) {
-        Button("Cancel", action: onEditingFinished)
-      }
+      cancelButton
       ToolbarItem(placement: .confirmationAction) {
         Button("Save", action: onEditingFinished)
+      }
+    }
+    .alert("Do you want to discard your edits?", isPresented: $isDiscarding) {
+      Button("Discard changes", role: .destructive, action: onEditingFinished)
+      Button("Continue editing", role: .cancel, action: {})
+    }
+  }
+}
+
+private extension EditProfileView {
+  var isContentEdited: Bool {
+    photosItem != nil
+    || name != user.name
+    || aboutMe != user.aboutMe
+  }
+
+  var cancelButton: some ToolbarContent {
+    ToolbarItem(placement: .cancellationAction) {
+      Button("Cancel") {
+        if isContentEdited {
+          isDiscarding = true
+        } else {
+          onEditingFinished()
+        }
       }
     }
   }
