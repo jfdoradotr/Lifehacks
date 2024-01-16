@@ -9,9 +9,10 @@ import SwiftUI
 
 struct EditProfileView: View {
   @State var user: User
+  let onEditingFinished: () -> Void
 
   var body: some View {
-    VStack {
+    ScrollView {
       Header(name: $user.name, profileImageURL: user.profileImageURL)
       AboutMe(
         text: Binding(
@@ -22,6 +23,15 @@ struct EditProfileView: View {
     }
     .padding(20.0)
     .animation(.default, value: user)
+    .navigationTitle("Edit Profile")
+    .toolbar {
+      ToolbarItem(placement: .cancellationAction) {
+        Button("Cancel", action: onEditingFinished)
+      }
+      ToolbarItem(placement: .confirmationAction) {
+        Button("Save", action: onEditingFinished)
+      }
+    }
   }
 }
 
@@ -90,7 +100,9 @@ extension EditProfileView {
 // MARK: - Previews
 
 #Preview {
-  EditProfileView(user: .preview)
+  NavigationStack {
+    EditProfileView(user: .preview, onEditingFinished: {})
+  }
 }
 
 #Preview("Interactive Views") {

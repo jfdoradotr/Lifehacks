@@ -31,7 +31,7 @@ struct ProfileView: View {
     }
     .fullScreenCover(isPresented: $isEditing) {
       NavigationStack {
-        EditProfileView(user: user)
+        EditProfileView(user: user, onEditingFinished: { isEditing = false })
       }
     }
   }
