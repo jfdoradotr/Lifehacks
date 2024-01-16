@@ -19,6 +19,12 @@ struct TopQuestionsView: View {
       .onMove(perform: move(fromOffsets:atOffsets:))
     }
     .listStyle(.plain)
+    .navigationTitle("Top Questions")
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        EditButton()
+      }
+    }
   }
 
   func deleteItems(atOffsets offsets: IndexSet) {
