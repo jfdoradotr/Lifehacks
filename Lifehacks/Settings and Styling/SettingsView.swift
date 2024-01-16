@@ -72,5 +72,7 @@ extension SettingsView.Row {
 // MARK: - Previews
 
 #Preview {
-  SettingsView()
+  NavigationStack {
+    SettingsView()
+  }
 }

@@ -68,7 +68,9 @@ extension ProfileView.Header {
 // MARK: - Previews
 
 #Preview {
-  ProfileView(user: .preview)
+  NavigationStack {
+    ProfileView(user: .preview)
+  }
 }
 
 #Preview("Header") {

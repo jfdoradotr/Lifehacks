@@ -81,7 +81,9 @@ extension QuestionView.Owner {
 // MARK: - Preview
 
 #Preview {
-  QuestionView(question: .preview)
+  NavigationStack {
+    QuestionView(question: .preview)
+  }
 }
 
 #Preview("Accessibility") {

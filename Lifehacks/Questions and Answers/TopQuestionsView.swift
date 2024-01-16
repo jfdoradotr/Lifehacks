@@ -122,7 +122,9 @@ extension TopQuestionsView.Row {
 // MARK: - Previews
 
 #Preview {
-  TopQuestionsView(questions: .preview)
+  NavigationStack {
+    TopQuestionsView(questions: .preview)
+  }
 }
 
 #Preview("Rows") {
