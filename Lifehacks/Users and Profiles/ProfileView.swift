@@ -17,6 +17,7 @@ struct ProfileView: View {
         .padding(.top, 16.0)
         .padding(.horizontal, 20.0)
     }
+    .navigationTitle(Text("Profile"))
   }
 }
 
