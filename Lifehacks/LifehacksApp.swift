@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct LifehacksApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @State private var theme: Theme = .vibrant
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .theme(theme)
+        .tint(theme.accentColor)
     }
+  }
 }
