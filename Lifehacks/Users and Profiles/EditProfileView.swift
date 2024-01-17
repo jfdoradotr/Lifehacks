@@ -84,6 +84,8 @@ extension EditProfileView {
   struct ErrorMessage: View {
     let text: String
 
+    @Environment(\.theme) private var theme: Theme
+
     init(_ text: String) {
       self.text = text
     }
@@ -92,7 +94,7 @@ extension EditProfileView {
       Text(text)
         .font(.footnote)
         .bold()
-        .foregroundColor(.orange)
+        .foregroundColor(theme.secondaryColor)
     }
   }
 }
