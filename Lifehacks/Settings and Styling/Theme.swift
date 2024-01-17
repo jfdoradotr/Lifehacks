@@ -28,3 +28,20 @@ struct Theme: Identifiable, Hashable {
 
   static let allThemes: [Theme] = [.default, .vibrant]
 }
+
+struct ThemeKey: EnvironmentKey {
+  static let defaultValue = Theme.default
+}
+
+extension EnvironmentValues {
+  var theme: Theme {
+    get { self[ThemeKey.self] }
+    set { self[ThemeKey.self] = newValue }
+  }
+}
+
+extension View {
+  func theme(_ theme: Theme) -> some View {
+    environment(\.theme, theme)
+  }
+}
