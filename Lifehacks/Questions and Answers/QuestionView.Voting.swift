@@ -23,15 +23,7 @@ extension QuestionView {
 
     var body: some View {
       VStack(spacing: 8.0) {
-        VoteButton(buttonType: .up, highlighted: vote == .up) {
-          cast(vote: .up)
-        }
-        Text("\(score)")
-          .font(.title)
-          .foregroundColor(.secondary)
-        VoteButton(buttonType: .down, highlighted: vote == .down) {
-          cast(vote: .down)
-        }
+        content
       }
     }
 
@@ -40,6 +32,22 @@ extension QuestionView {
       case (nil, .up), (.down, .up): upvote()
       case (nil, .down), (.up, .down): downvote()
       default: unvote()
+      }
+    }
+  }
+}
+
+private extension QuestionView.Voting {
+  var content: some View {
+    Group {
+      VoteButton(buttonType: .up, highlighted: vote == .up) {
+        cast(vote: .up)
+      }
+      Text("\(score)")
+        .font(.title)
+        .foregroundColor(.secondary)
+      VoteButton(buttonType: .down, highlighted: vote == .down) {
+        cast(vote: .down)
       }
     }
   }
