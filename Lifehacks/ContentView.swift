@@ -30,4 +30,6 @@ struct ContentView: View {
 
 #Preview {
   ContentView()
+    .theme(.vibrant)
+    .tint(Theme.vibrant.accentColor)
 }
