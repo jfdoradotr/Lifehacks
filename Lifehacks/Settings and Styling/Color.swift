@@ -10,7 +10,7 @@ import SwiftUI
 struct Color_Previews: PreviewProvider {
   static var previews: some View {
     VStack {
-      Color.accentColor
+      Color.cornflowerBlue
       Color.pizazz
       Color.electricViolet
       Color.blazeOrange

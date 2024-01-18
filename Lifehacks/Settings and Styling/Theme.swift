@@ -16,7 +16,7 @@ struct Theme: Identifiable, Hashable {
 
   static let `default` = Theme(
     name: "Default",
-    accentColor: .accentColor,
+    accentColor: .cornflowerBlue,
     secondaryColor: .pizazz
   )
 
