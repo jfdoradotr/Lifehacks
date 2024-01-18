@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @State var selectedThemeID: String? = Theme.default.id
+  @EnvironmentObject private var settingsController: SettingsController
 
   var body: some View {
-    List(selection: $selectedThemeID) {
+    List(selection: $settingsController.selectedThemeID) {
       Section(header: Text("APP THEME")) {
         ForEach(Theme.allThemes) { theme in
-          Row(theme: theme, isSelected: theme.id == selectedThemeID)
+          Row(theme: theme, isSelected: theme.id == settingsController.selectedThemeID)
             .listRowInsets(.init(
               top: 16.0,
               leading: 16.0,
@@ -75,4 +75,5 @@ extension SettingsView.Row {
   NavigationStack {
     SettingsView()
   }
+  .environmentObject(SettingsController())
 }
