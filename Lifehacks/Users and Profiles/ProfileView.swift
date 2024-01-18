@@ -14,7 +14,8 @@ struct ProfileView: View {
 
   var body: some View {
     ScrollView {
-      Header(user: user, isMainUser: isMainUser)
+      Header(user: user)
+        .role(isMainUser ? .primary : .secondary)
       Text(user.aboutMe ?? "")
         .padding(.top, 16.0)
         .padding(.horizontal, 20.0)
@@ -50,7 +51,6 @@ extension ProfileView {
     let name: String
     let reputation: Int
     let profileImageURL: URL?
-    let isMainUser: Bool
 
     var body: some View {
       VStack(spacing: 4.0) {
@@ -65,18 +65,17 @@ extension ProfileView {
       }
       .frame(maxWidth: .infinity)
       .padding([.top, .bottom], 24)
-      .style(color: isMainUser ? .accentColor : .pizazz, isRounded: false)
+      .style(color: .accentColor, isRounded: false)
     }
   }
 }
 
 extension ProfileView.Header {
-  init(user: User, isMainUser: Bool) {
+  init(user: User) {
     self.init(
       name: user.name,
       reputation: user.reputation,
-      profileImageURL: user.profileImageURL,
-      isMainUser: isMainUser
+      profileImageURL: user.profileImageURL
     )
   }
 }
@@ -91,7 +90,8 @@ extension ProfileView.Header {
 
 #Preview("Header") {
   VStack {
-    ProfileView.Header(user: .preview, isMainUser: true)
-    ProfileView.Header(user: .preview, isMainUser: false)
+    ProfileView.Header(user: .preview)
+    ProfileView.Header(user: .preview)
+      .role(.secondary)
   }
 }
