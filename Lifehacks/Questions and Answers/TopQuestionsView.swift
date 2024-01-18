@@ -59,9 +59,10 @@ extension TopQuestionsView {
           .font(.headline)
         HStack(alignment: .center, spacing: 16) {
           Counter(count: score, label: "votes")
-            .style(color: .accentColor)
+            .styled()
           Counter(count: answerCount, label: "answers")
-            .style(color: .pizazz, isFilled: isAnswered)
+            .styled(isFilled: isAnswered)
+            .role(.secondary)
           Details(viewCount: viewCount, date: date, name: name)
         }
         .padding(.vertical, 8)

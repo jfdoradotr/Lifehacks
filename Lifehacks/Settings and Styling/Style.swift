@@ -41,7 +41,7 @@ struct Style: ViewModifier {
 }
 
 extension View {
-  func style(color: Color, isFilled: Bool = true, isRounded: Bool = true) -> some View {
+  func styled(color: Color? = nil, isFilled: Bool = true, isRounded: Bool = true) -> some View {
     modifier(Style(color: color, isFilled: isFilled, isRounded: isRounded))
   }
 }
@@ -52,24 +52,24 @@ extension View {
     GridRow {
       Text("Accent")
         .frame(width: size, height: size)
-        .style(color: .accentColor, isRounded: false)
+        .styled(color: .accentColor, isRounded: false)
       Text("Pizazz")
         .frame(width: size, height: size)
-        .style(color: .pizazz)
+        .styled(color: .pizazz)
       Text("Pizazz")
         .frame(width: size, height: size)
-        .style(color: .pizazz, isFilled: false)
+        .styled(color: .pizazz, isFilled: false)
     }
     GridRow {
       Text("Electric Violet")
         .frame(width: size, height: size)
-        .style(color: .electricViolet, isRounded: false)
+        .styled(color: .electricViolet, isRounded: false)
       Text("Blaze Orange")
         .frame(width: size, height: size)
-        .style(color: .blazeOrange)
+        .styled(color: .blazeOrange)
       Text("Blaze Orange")
         .frame(width: size, height: size)
-        .style(color: .blazeOrange, isFilled: false)
+        .styled(color: .blazeOrange, isFilled: false)
     }
   }
 }

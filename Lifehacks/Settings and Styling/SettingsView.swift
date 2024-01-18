@@ -39,11 +39,11 @@ extension SettingsView {
     var body: some View {
       LabeledContent {
         Placeholder(imageName: "sun.max.fill")
-          .style(color: theme.accentColor)
+          .styled(color: theme.accentColor)
         Placeholder(imageName: "moon.fill")
-          .style(color: theme.secondaryColor)
+          .styled(color: theme.secondaryColor)
         Placeholder(imageName: "leaf")
-          .style(color: theme.secondaryColor, isFilled: false)
+          .styled(color: theme.secondaryColor, isFilled: false)
       } label: {
         HStack {
           Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")

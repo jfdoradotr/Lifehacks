@@ -65,7 +65,7 @@ extension ProfileView {
       }
       .frame(maxWidth: .infinity)
       .padding([.top, .bottom], 24)
-      .style(color: .accentColor, isRounded: false)
+      .styled(isRounded: false)
     }
   }
 }

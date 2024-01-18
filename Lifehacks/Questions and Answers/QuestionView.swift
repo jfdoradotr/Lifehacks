@@ -74,7 +74,7 @@ extension QuestionView {
         }
       }
       .padding(16)
-      .style(color: .accentColor)
+      .styled(color: .accentColor)
     }
   }
 }
@@ -97,8 +97,8 @@ extension QuestionView {
       if let user {
         NavigationLink(value: user) {
           QuestionView.Owner(user: user)
-            .style(color: .accentColor)
-            .frame(width: .infinity, alignment: .trailing)
+            .styled()
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
       }
     }
