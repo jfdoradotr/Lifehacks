@@ -33,6 +33,7 @@ extension QuestionView {
             .font(.caption)
             .foregroundColor(.secondary)
           QuestionView.OwnerLink(user: answer.owner)
+            .role(.secondary)
         }
       }
     }
