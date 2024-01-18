@@ -8,22 +8,33 @@
 import SwiftUI
 
 struct Style: ViewModifier {
-  let color: Color
+  let color: Color?
   var isFilled = true
   var isRounded = true
+
+  @Environment(\.theme) private var theme: Theme
+  @Environment(\.role) private var role: Role
+
+  var appliedColor: Color {
+    if let color {
+      return color
+    }
+
+    return role == .primary ? theme.accentColor : theme.secondaryColor
+  }
 
   func body(content: Content) -> some View {
     let radius = isRounded ? 10.0 : 0.0
     if isFilled {
       content
-        .background(color)
+        .background(appliedColor)
         .cornerRadius(radius)
         .foregroundColor(.white)
     } else {
       content
         .background(
           RoundedRectangle(cornerRadius: radius)
-            .strokeBorder(color, lineWidth: 2.0)
+            .strokeBorder(appliedColor, lineWidth: 2.0)
         )
     }
   }
