@@ -62,3 +62,26 @@ extension View {
     }
   }
 }
+
+extension Style {
+  enum Role {
+    case primary, secondary
+  }
+
+  struct RoleKey: EnvironmentKey {
+    static let defaultValue = Role.primary
+  }
+}
+
+extension EnvironmentValues {
+  var role: Style.Role {
+    get { self[Style.RoleKey.self] }
+    set { self[Style.RoleKey.self] = newValue }
+  }
+}
+
+extension View {
+  func role(_ role: Style.Role) -> some View {
+    environment(\.role, role)
+  }
+}
