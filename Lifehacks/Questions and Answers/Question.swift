@@ -21,7 +21,7 @@ struct Question: Identifiable, Hashable, Votable {
   var answers: [Answer]
 }
 
-extension Question: Decodable {
+extension Question: Codable {
   enum CodingKeys: String, CodingKey {
     case id = "question_id"
     case viewCount = "view_count"

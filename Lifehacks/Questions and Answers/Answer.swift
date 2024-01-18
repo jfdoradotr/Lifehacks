@@ -17,7 +17,7 @@ struct Answer: Identifiable, Hashable, Votable {
   var vote: Vote?
 }
 
-extension Answer: Decodable {
+extension Answer: Codable {
   enum CodingKeys: String, CodingKey {
     case id = "answer_id"
     case body = "body_markdown"
