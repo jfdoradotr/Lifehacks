@@ -19,6 +19,7 @@
 		A94292732B59DF6B009EA6C0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94292722B59DF6B009EA6C0 /* SettingsController.swift */; };
 		A94292752B59E2E1009EA6C0 /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94292742B59E2E1009EA6C0 /* QuestionsController.swift */; };
 		A94292772B59E48D009EA6C0 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94292762B59E48D009EA6C0 /* UserController.swift */; };
+		A94292792B59E615009EA6C0 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94292782B59E615009EA6C0 /* PersistenceController.swift */; };
 		A95A4F982B535A48004CC43B /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4F972B535A48004CC43B /* EditProfileView.swift */; };
 		A95A4F9A2B535C0B004CC43B /* View+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4F992B535C0B004CC43B /* View+Visibility.swift */; };
 		A95A4F9D2B536109004CC43B /* Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A95A4F9C2B536109004CC43B /* Avatar.jpg */; };
@@ -52,6 +53,7 @@
 		A94292722B59DF6B009EA6C0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A94292742B59E2E1009EA6C0 /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
 		A94292762B59E48D009EA6C0 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		A94292782B59E615009EA6C0 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		A95A4F972B535A48004CC43B /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		A95A4F992B535C0B004CC43B /* View+Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Visibility.swift"; sourceTree = "<group>"; };
 		A95A4F9C2B536109004CC43B /* Avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Avatar.jpg; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				A95A4FB02B55A68C004CC43B /* Questions and Answers */,
 				A95A4FB22B55A79B004CC43B /* Settings and Styling */,
 				A95A4FB12B55A73E004CC43B /* Users and Profiles */,
+				A94292782B59E615009EA6C0 /* PersistenceController.swift */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				A94292752B59E2E1009EA6C0 /* QuestionsController.swift in Sources */,
 				A91C32522B3762EB000C0F21 /* User.swift in Sources */,
 				A94292732B59DF6B009EA6C0 /* SettingsController.swift in Sources */,
+				A94292792B59E615009EA6C0 /* PersistenceController.swift in Sources */,
 				A95A4FB62B561DDF004CC43B /* ProfileView.swift in Sources */,
 				A95A4FA32B54C0E4004CC43B /* Theme.swift in Sources */,
 			);
