@@ -16,6 +16,7 @@
 		A91C32562B388962000C0F21 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32552B388962000C0F21 /* QuestionView.swift */; };
 		A91C32582B388AEC000C0F21 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32572B388AEC000C0F21 /* PreviewData.swift */; };
 		A91C325A2B38AAA2000C0F21 /* Questions.json in Resources */ = {isa = PBXBuildFile; fileRef = A91C32592B38AAA2000C0F21 /* Questions.json */; };
+		A94292732B59DF6B009EA6C0 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94292722B59DF6B009EA6C0 /* SettingsController.swift */; };
 		A95A4F982B535A48004CC43B /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4F972B535A48004CC43B /* EditProfileView.swift */; };
 		A95A4F9A2B535C0B004CC43B /* View+Visibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4F992B535C0B004CC43B /* View+Visibility.swift */; };
 		A95A4F9D2B536109004CC43B /* Avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A95A4F9C2B536109004CC43B /* Avatar.jpg */; };
@@ -46,6 +47,7 @@
 		A91C32552B388962000C0F21 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		A91C32572B388AEC000C0F21 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		A91C32592B38AAA2000C0F21 /* Questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Questions.json; sourceTree = "<group>"; };
+		A94292722B59DF6B009EA6C0 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A95A4F972B535A48004CC43B /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		A95A4F992B535C0B004CC43B /* View+Visibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Visibility.swift"; sourceTree = "<group>"; };
 		A95A4F9C2B536109004CC43B /* Avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Avatar.jpg; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				A993C7AF2B3A577700938124 /* Color.swift */,
+				A94292722B59DF6B009EA6C0 /* SettingsController.swift */,
 				A95A4FA42B54C19E004CC43B /* SettingsView.swift */,
 				A993C7B32B3F971C00938124 /* Style.swift */,
 				A95A4FA22B54C0E4004CC43B /* Theme.swift */,
@@ -257,6 +260,7 @@
 				A95A4F9A2B535C0B004CC43B /* View+Visibility.swift in Sources */,
 				A95A4FA92B54C784004CC43B /* Votable.swift in Sources */,
 				A91C32522B3762EB000C0F21 /* User.swift in Sources */,
+				A94292732B59DF6B009EA6C0 /* SettingsController.swift in Sources */,
 				A95A4FB62B561DDF004CC43B /* ProfileView.swift in Sources */,
 				A95A4FA32B54C0E4004CC43B /* Theme.swift in Sources */,
 			);
