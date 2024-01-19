@@ -10,7 +10,10 @@ import Foundation
 final class UserController: ObservableObject {
   @Published private(set) var mainUser: User
 
-  init(mainUser: User) {
+  private let persistenceController: PersistenceController
+
+  init(mainUser: User, persistenceController: PersistenceController) {
     self.mainUser = mainUser
+    self.persistenceController = persistenceController
   }
 }
