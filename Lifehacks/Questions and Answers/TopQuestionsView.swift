@@ -130,6 +130,7 @@ extension TopQuestionsView.Row {
 #Preview {
   NavigationStack {
     TopQuestionsView()
+      .environmentObject(QuestionsController(persistenceController: PersistenceController()))
   }
 }
 
