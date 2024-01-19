@@ -13,7 +13,7 @@ struct ContentView: View {
   var body: some View {
     TabView {
       NavigationStack {
-        TopQuestionsView(questions: .preview)
+        TopQuestionsView()
       }
       .tabItem { Label("Top Questions", systemImage: "list.number") }
       NavigationStack {
