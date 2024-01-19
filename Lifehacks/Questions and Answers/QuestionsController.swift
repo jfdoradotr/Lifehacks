@@ -10,7 +10,10 @@ import Foundation
 final class QuestionsController: ObservableObject {
   @Published var questions: [Question]
 
-  init(questions: [Question]) {
-    self.questions = questions
+  private let persistenceController: PersistenceController
+
+  init(persistenceController: PersistenceController) {
+    self.questions = persistenceController.fetchQuestions() ?? []
+    self.persistenceController = persistenceController
   }
 }
