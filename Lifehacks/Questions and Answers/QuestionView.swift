@@ -13,28 +13,46 @@ struct QuestionView: View {
   let question: Question
 
   @EnvironmentObject private var questionsController: QuestionsController
+  @StateObject private var model: Model
+
+  init(question: Question) {
+    self.question = question
+    self._model = .init(wrappedValue: Model(question: question))
+  }
 
   var body: some View {
-    ScrollView {
-      LazyVStack {
-        QuestionDetails(question: $questionsController[question.id])
-          .padding(.bottom)
-        Divider()
-          .padding(.leading, 20.0)
-        ForEach($questionsController[question.id].answers) { $answer in
-          AnswerDetails(answer: $answer)
-            .padding(.horizontal, 24.0)
-            .padding(.vertical, 24.0)
-            .id(answer.id)
+    Content(question: $questionsController[question.id])
+      .navigationTitle("Question")
+      .navigationDestination(for: User.self) { user in
+        ProfileView(user: user)
+      }
+  }
+}
+
+// MARK: - Content
+
+extension QuestionView {
+  struct Content: View {
+    @Binding var question: Question
+
+    var body: some View {
+      ScrollView {
+        LazyVStack {
+          QuestionView.QuestionDetails(question: $question)
+            .padding(.bottom)
           Divider()
             .padding(.leading, 20.0)
+          ForEach($question.answers) { $answer in
+            QuestionView.AnswerDetails(answer: $answer)
+              .padding(.horizontal, 24.0)
+              .padding(.vertical, 24.0)
+              .id(answer.id)
+            Divider()
+              .padding(.leading, 20.0)
+          }
         }
       }
-    }
-    .padding(.top)
-    .navigationTitle("Question")
-    .navigationDestination(for: User.self) { user in
-      ProfileView(user: user)
+      .padding(.top)
     }
   }
 }
@@ -111,12 +129,13 @@ extension QuestionView {
 
 #Preview {
   NavigationStack {
-    QuestionView(question: .preview)
+    QuestionView.Content(question: .constant(.preview))
+      .navigationTitle("Question")
   }
 }
 
 #Preview("Accessibility") {
-  QuestionView.QuestionDetails(question: .constant(.preview))
+  QuestionView.Content(question: .constant(.preview))
     .previewDevice(.init(rawValue: "iPhone SE (3rd generation)"))
     .preferredColorScheme(.dark)
     .dynamicTypeSize(.xxxLarge)
