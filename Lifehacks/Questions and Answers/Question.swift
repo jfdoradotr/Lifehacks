@@ -41,8 +41,8 @@ extension Question: Codable {
     title = try container.decode(String.self, forKey: .title)
     isAnswered = try container.decode(Bool.self, forKey: .isAnswered)
     creationDate = try container.decode(Date.self, forKey: .creationDate)
-    body = try container.decode(String.self, forKey: .body)
-    answers = try container.decode([Answer].self, forKey: .answers)
+    body = try container.decodeIfPresent(String.self, forKey: .body) ?? ""
+    answers = try container.decodeIfPresent([Answer].self, forKey: .answers) ?? []
     do {
       owner = try container.decodeIfPresent(User.self, forKey: .owner)
     } catch User.DecodingError.userDoesNotExist {
