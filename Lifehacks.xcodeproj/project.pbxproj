@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90998E52B5F2AA000D42513 /* URL+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90998E42B5F2AA000D42513 /* URL+Parameters.swift */; };
 		A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32432B3762D4000C0F21 /* LifehacksApp.swift */; };
 		A91C32462B3762D4000C0F21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32452B3762D4000C0F21 /* ContentView.swift */; };
 		A91C32482B3762D4000C0F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91C32472B3762D4000C0F21 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A90998E42B5F2AA000D42513 /* URL+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Parameters.swift"; sourceTree = "<group>"; };
 		A91C32402B3762D4000C0F21 /* Lifehacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lifehacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91C32432B3762D4000C0F21 /* LifehacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifehacksApp.swift; sourceTree = "<group>"; };
 		A91C32452B3762D4000C0F21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,13 +107,14 @@
 			children = (
 				A91C32452B3762D4000C0F21 /* ContentView.swift */,
 				A91C32432B3762D4000C0F21 /* LifehacksApp.swift */,
+				A94292782B59E615009EA6C0 /* PersistenceController.swift */,
+				A90998E42B5F2AA000D42513 /* URL+Parameters.swift */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A95A4F9B2B535C23004CC43B /* Extensions */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
 				A95A4FB02B55A68C004CC43B /* Questions and Answers */,
 				A95A4FB22B55A79B004CC43B /* Settings and Styling */,
 				A95A4FB12B55A73E004CC43B /* Users and Profiles */,
-				A94292782B59E615009EA6C0 /* PersistenceController.swift */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */,
 				A993C7B42B3F971C00938124 /* Style.swift in Sources */,
 				A95A4F9A2B535C0B004CC43B /* View+Visibility.swift in Sources */,
+				A90998E52B5F2AA000D42513 /* URL+Parameters.swift in Sources */,
 				A95A4FA92B54C784004CC43B /* Votable.swift in Sources */,
 				A94292752B59E2E1009EA6C0 /* QuestionsController.swift in Sources */,
 				A91C32522B3762EB000C0F21 /* User.swift in Sources */,
