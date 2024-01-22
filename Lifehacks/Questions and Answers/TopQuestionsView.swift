@@ -11,33 +11,45 @@ struct TopQuestionsView: View {
   @EnvironmentObject private var questionsController: QuestionsController
 
   var body: some View {
-    List {
-      ForEach(questionsController.questions) { question in
-        NavigationLink(value: question) {
-          Row(question: question)
+    Content(questions: $questionsController.questions)
+      .navigationTitle("Top Questions")
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          EditButton()
         }
       }
-      .onDelete(perform: deleteItems(atOffsets:))
-      .onMove(perform: move(fromOffsets:atOffsets:))
-    }
-    .listStyle(.plain)
-    .navigationTitle("Top Questions")
-    .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        EditButton()
+      .navigationDestination(for: Question.self) { question in
+        QuestionView(question: question)
       }
-    }
-    .navigationDestination(for: Question.self) { question in
-      QuestionView(question: question)
-    }
   }
+}
 
-  func deleteItems(atOffsets offsets: IndexSet) {
-    questionsController.questions.remove(atOffsets: offsets)
-  }
+// MARK: - ContentView
 
-  func move(fromOffsets source: IndexSet, atOffsets destination: Int) {
-    questionsController.questions.move(fromOffsets: source, toOffset: destination)
+extension TopQuestionsView {
+  struct Content: View {
+    @Binding var questions: [Question]
+
+    var body: some View {
+      List {
+        ForEach(questions) { question in
+          NavigationLink(value: question) {
+            TopQuestionsView.Row(question: question)
+          }
+        }
+        .onDelete(perform: deleteItems(atOffsets:))
+        .onMove(perform: move(fromOffsets:atOffsets:))
+      }
+      .listStyle(.plain)
+    }
+
+    func deleteItems(atOffsets offsets: IndexSet) {
+      questions.remove(atOffsets: offsets)
+    }
+
+    func move(fromOffsets source: IndexSet, atOffsets destination: Int) {
+      questions.move(fromOffsets: source, toOffset: destination)
+    }
   }
 }
 
@@ -129,8 +141,7 @@ extension TopQuestionsView.Row {
 
 #Preview {
   NavigationStack {
-    TopQuestionsView()
-      .environmentObject(QuestionsController(persistenceController: PersistenceController()))
+    TopQuestionsView.Content(questions: .constant(.preview))
   }
 }
 
