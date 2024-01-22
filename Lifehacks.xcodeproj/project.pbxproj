@@ -10,6 +10,7 @@
 		A90998E52B5F2AA000D42513 /* URL+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90998E42B5F2AA000D42513 /* URL+Parameters.swift */; };
 		A90998E72B5F2B6700D42513 /* JSONDecoder+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90998E62B5F2B6700D42513 /* JSONDecoder+API.swift */; };
 		A90998E92B5F2C7F00D42513 /* TopQuestionsView.Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90998E82B5F2C7F00D42513 /* TopQuestionsView.Model.swift */; };
+		A90998EB2B5F2E9D00D42513 /* View+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90998EA2B5F2E9D00D42513 /* View+Loading.swift */; };
 		A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32432B3762D4000C0F21 /* LifehacksApp.swift */; };
 		A91C32462B3762D4000C0F21 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91C32452B3762D4000C0F21 /* ContentView.swift */; };
 		A91C32482B3762D4000C0F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91C32472B3762D4000C0F21 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		A90998E42B5F2AA000D42513 /* URL+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Parameters.swift"; sourceTree = "<group>"; };
 		A90998E62B5F2B6700D42513 /* JSONDecoder+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+API.swift"; sourceTree = "<group>"; };
 		A90998E82B5F2C7F00D42513 /* TopQuestionsView.Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopQuestionsView.Model.swift; sourceTree = "<group>"; };
+		A90998EA2B5F2E9D00D42513 /* View+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Loading.swift"; sourceTree = "<group>"; };
 		A91C32402B3762D4000C0F21 /* Lifehacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lifehacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91C32432B3762D4000C0F21 /* LifehacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifehacksApp.swift; sourceTree = "<group>"; };
 		A91C32452B3762D4000C0F21 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				A91C32432B3762D4000C0F21 /* LifehacksApp.swift */,
 				A94292782B59E615009EA6C0 /* PersistenceController.swift */,
 				A90998E42B5F2AA000D42513 /* URL+Parameters.swift */,
+				A90998EA2B5F2E9D00D42513 /* View+Loading.swift */,
 				A91C32472B3762D4000C0F21 /* Assets.xcassets */,
 				A95A4F9B2B535C23004CC43B /* Extensions */,
 				A91C32492B3762D4000C0F21 /* Preview Content */,
@@ -287,6 +290,7 @@
 				A90998E72B5F2B6700D42513 /* JSONDecoder+API.swift in Sources */,
 				A95A4FB62B561DDF004CC43B /* ProfileView.swift in Sources */,
 				A95A4FA32B54C0E4004CC43B /* Theme.swift in Sources */,
+				A90998EB2B5F2E9D00D42513 /* View+Loading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

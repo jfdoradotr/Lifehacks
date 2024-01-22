@@ -14,6 +14,8 @@ struct TopQuestionsView: View {
   var body: some View {
     Content(questions: $questionsController.questions)
       .navigationChrome()
+      .loading(model.isLoading)
+      .errorAlert(isPresented: $model.showError)
       .navigationDestination(for: Question.self) { question in
         QuestionView(question: question)
       }
