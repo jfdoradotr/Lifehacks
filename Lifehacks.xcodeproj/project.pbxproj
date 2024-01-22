@@ -38,6 +38,7 @@
 		A95A4FAF2B55A267004CC43B /* QuestionView.AnswerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FAE2B55A267004CC43B /* QuestionView.AnswerDetails.swift */; };
 		A95A4FB42B561DA3004CC43B /* AsyncProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FB32B561DA3004CC43B /* AsyncProfileImage.swift */; };
 		A95A4FB62B561DDF004CC43B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A4FB52B561DDF004CC43B /* ProfileView.swift */; };
+		A971855B2B5F306D008849B2 /* QuestionView.Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A971855A2B5F306D008849B2 /* QuestionView.Model.swift */; };
 		A993C7B02B3A577700938124 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7AF2B3A577700938124 /* Color.swift */; };
 		A993C7B22B3DEA0300938124 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B12B3DEA0300938124 /* Image.swift */; };
 		A993C7B42B3F971C00938124 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = A993C7B32B3F971C00938124 /* Style.swift */; };
@@ -76,6 +77,7 @@
 		A95A4FAE2B55A267004CC43B /* QuestionView.AnswerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.AnswerDetails.swift; sourceTree = "<group>"; };
 		A95A4FB32B561DA3004CC43B /* AsyncProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncProfileImage.swift; sourceTree = "<group>"; };
 		A95A4FB52B561DDF004CC43B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A971855A2B5F306D008849B2 /* QuestionView.Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.Model.swift; sourceTree = "<group>"; };
 		A993C7AF2B3A577700938124 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A993C7B12B3DEA0300938124 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		A993C7B32B3F971C00938124 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				A91C32532B376312000C0F21 /* Question.swift */,
 				A94292742B59E2E1009EA6C0 /* QuestionsController.swift */,
 				A95A4FAE2B55A267004CC43B /* QuestionView.AnswerDetails.swift */,
+				A971855A2B5F306D008849B2 /* QuestionView.Model.swift */,
 				A95A4FAC2B554E16004CC43B /* QuestionView.QuestionDetails.swift */,
 				A91C32552B388962000C0F21 /* QuestionView.swift */,
 				A95A4FAA2B54C915004CC43B /* QuestionView.Voting.swift */,
@@ -279,6 +282,7 @@
 				A95A4FA12B544E88004CC43B /* Text+Formatting.swift in Sources */,
 				A91C32442B3762D4000C0F21 /* LifehacksApp.swift in Sources */,
 				A993C7B42B3F971C00938124 /* Style.swift in Sources */,
+				A971855B2B5F306D008849B2 /* QuestionView.Model.swift in Sources */,
 				A95A4F9A2B535C0B004CC43B /* View+Visibility.swift in Sources */,
 				A90998E52B5F2AA000D42513 /* URL+Parameters.swift in Sources */,
 				A95A4FA92B54C784004CC43B /* Votable.swift in Sources */,
