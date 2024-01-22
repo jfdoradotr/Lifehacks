@@ -23,8 +23,14 @@ struct QuestionView: View {
   var body: some View {
     Content(question: $questionsController[question.id])
       .navigationTitle("Question")
+      .loading(model.isLoading)
+      .errorAlert(isPresented: $model.showError)
+      .task { await model.loadDetails() }
       .navigationDestination(for: User.self) { user in
         ProfileView(user: user)
+      }
+      .onChange(of: model.question) { newValue in
+        questionsController[question.id] = newValue
       }
   }
 }
