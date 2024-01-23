@@ -119,8 +119,13 @@ fileprivate extension ProfileView {
 // MARK: - Previews
 
 #Preview {
-  NavigationStack {
-    ProfileView.Content(user: .preview)
+  Group {
+    let model = ProfileView.Model.Preview(user: .preview)
+    let userController = UserController.Preview(mainUser: .preview) as UserController
+    NavigationStack {
+      ProfileView(user: .preview, model: model)
+        .environmentObject(userController)
+    }
   }
 }
 
