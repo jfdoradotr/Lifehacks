@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var user: User = .preview
+  @EnvironmentObject private var userController: UserController
 
   var body: some View {
     TabView {
@@ -17,7 +17,7 @@ struct ContentView: View {
       }
       .tabItem { Label("Top Questions", systemImage: "list.number") }
       NavigationStack {
-        ProfileView(user: .preview)
+        ProfileView(user: userController.mainUser)
       }
       .tabItem { Label("Profile", systemImage: "person.circle") }
       NavigationStack {
