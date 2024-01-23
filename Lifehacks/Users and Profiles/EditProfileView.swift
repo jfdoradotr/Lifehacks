@@ -53,7 +53,14 @@ private extension EditProfileView {
 
   var saveButton: some ToolbarContent {
     ToolbarItem(placement: .confirmationAction) {
-      Button("Save", action: onEditingFinished)
+      Button("Save") {
+        try? userController.save(
+          name: model.name,
+          aboutMe: model.aboutMe,
+          profilePicture: model.profileImageData
+        )
+        onEditingFinished()
+      }
     }
   }
 }

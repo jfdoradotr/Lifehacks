@@ -16,4 +16,13 @@ final class UserController: ObservableObject {
     self.mainUser = mainUser
     self.persistenceController = persistenceController
   }
+
+  func save(name: String, aboutMe: String, profilePicture: Data?) throws {
+    mainUser.name = name
+    mainUser.aboutMe = aboutMe
+    if let profilePicture {
+      mainUser.profileImageURL = try persistenceController.saveProfileImageData(data: profilePicture)
+    }
+    persistenceController.save(user: mainUser)
+  }
 }

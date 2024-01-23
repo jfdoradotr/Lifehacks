@@ -12,7 +12,7 @@ struct User: Hashable {
   let reputation: Int
   var name: String
   var aboutMe: String?
-  let profileImageURL: URL?
+  var profileImageURL: URL?
 }
 
 extension User: Codable {

@@ -27,17 +27,28 @@ final class PersistenceController {
     guard let data = try? Data(contentsOf: .jsonFileURLNamed(.user)) else { return nil }
     return try? JSONDecoder().decode(User.self, from: data)
   }
+
+  func saveProfileImageData(data: Data) throws -> URL {
+    let url = URL.fileURL(name: .profilePicture, extension: "jpeg")
+    try data.write(to: url)
+    return url
+  }
 }
 
 private extension URL {
   static func jsonFileURLNamed(_ name: String) -> URL {
+    fileURL(name: name, extension: "json")
+  }
+
+  static func fileURL(name: String, extension: String) -> URL {
     URL.documentsDirectory
       .appendingPathComponent(name)
-      .appendingPathExtension("json")
+      .appendingPathExtension(`extension`)
   }
 }
 
 private extension String {
   static var questions: String { "Questions" }
   static var user: String { "User" }
+  static var profilePicture: String { "ProfilePicture" }
 }
