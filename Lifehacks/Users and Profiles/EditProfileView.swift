@@ -95,7 +95,9 @@ extension EditProfileView {
           photosItem: $photosItem,
           profileImageURL: profileImageURL
         )
+        .animation(.default, value: name)
         EditProfileView.AboutMe(text: $aboutMe)
+          .animation(.default, value: aboutMe)
       }
       .padding(20.0)
     }
