@@ -7,14 +7,19 @@
 
 import Foundation
 
-final class UserController: ObservableObject {
+class UserController: ObservableObject {
   @Published private(set) var mainUser: User
 
-  private let persistenceController: PersistenceController
+  private let persistenceController: PersistenceController!
 
   init(mainUser: User, persistenceController: PersistenceController) {
     self.mainUser = mainUser
     self.persistenceController = persistenceController
+  }
+
+  private init(mainUser: User) {
+    self.mainUser = mainUser
+    self.persistenceController = nil
   }
 
   func save(name: String, aboutMe: String, profilePicture: Data?) throws {
@@ -24,5 +29,18 @@ final class UserController: ObservableObject {
       mainUser.profileImageURL = try persistenceController.saveProfileImageData(data: profilePicture)
     }
     persistenceController.save(user: mainUser)
+  }
+}
+
+extension UserController {
+  class Preview: UserController {
+    override init(mainUser: User) {
+      super.init(mainUser: mainUser)
+    }
+
+    override func save(name: String, aboutMe: String, profilePicture: Data?) throws {
+      mainUser.name = name
+      mainUser.aboutMe = aboutMe
+    }
   }
 }
