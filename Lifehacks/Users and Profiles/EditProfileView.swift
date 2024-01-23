@@ -9,37 +9,23 @@ import SwiftUI
 import PhotosUI
 
 struct EditProfileView: View {
-  let user: User
   let onEditingFinished: () -> Void
-
-  @State private var name: String
-  @State private var aboutMe: String?
-  @State private var photosItem: PhotosPickerItem?
   @State private var isDiscarding: Bool = false
+  @StateObject private var model: Model
+  @EnvironmentObject private var userController: UserController
 
   init(user: User, onEditingFinished: @escaping () -> Void) {
-    self.user = user
     self.onEditingFinished = onEditingFinished
-    self._name = .init(initialValue: user.name)
-    self._aboutMe = .init(initialValue: user.aboutMe ?? "")
+    self._model = .init(wrappedValue: Model(user: user))
   }
 
   var body: some View {
-    ScrollView {
-      Header(
-        name: $name,
-        photosItem: $photosItem,
-        profileImageURL: user.profileImageURL
-      )
-      AboutMe(
-        text: Binding(
-          get: { aboutMe ?? "" },
-          set: { text in aboutMe = text }
-        )
-      )
-    }
-    .padding(20.0)
-    .animation(.default, value: user)
+    Content(
+      profileImageURL: model.profileImageURL,
+      name: $model.name,
+      aboutMe: $model.aboutMe,
+      photosItem: $model.photosItem
+    )
     .navigationTitle("Edit Profile")
     .toolbar {
       cancelButton
@@ -56,7 +42,7 @@ private extension EditProfileView {
   var cancelButton: some ToolbarContent {
     ToolbarItem(placement: .cancellationAction) {
       Button("Cancel") {
-        if isContentEdited {
+        if model.isContentEdited {
           isDiscarding = true
         } else {
           onEditingFinished()
