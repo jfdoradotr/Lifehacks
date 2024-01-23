@@ -11,36 +11,65 @@ struct ProfileView: View {
   let user: User
 
   @State private var isEditing = false
+  @StateObject private var model: Model
+  @EnvironmentObject private var userController: UserController
+
+  init(user: User) {
+    self.user = user
+    self._model = .init(wrappedValue: Model(user: user))
+  }
 
   var body: some View {
-    ScrollView {
-      Header(user: user)
-        .role(isMainUser ? .primary : .secondary)
-      Text(user.aboutMe ?? "")
-        .padding(.top, 16.0)
-        .padding(.horizontal, 20.0)
-    }
-    .navigationTitle(Text("Profile"))
-    .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        if isMainUser {
-          Button(action: { isEditing = true }, label: {
-            Text("Edit")
-          })
+    Content(user: displayedUser)
+      .navigationTitle(Text("Profile"))
+      .role(isMainUser ? .primary : .secondary)
+      .loading(model.isLoading)
+      .errorAlert(isPresented: $model.showError)
+      .task {
+        guard !isMainUser else { return }
+        await model.loadAboutMe()
+      }
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          if isMainUser {
+            Button(action: { isEditing = true }, label: {
+              Text("Edit")
+            })
+          }
         }
       }
-    }
-    .fullScreenCover(isPresented: $isEditing) {
-      NavigationStack {
-        EditProfileView(user: user, onEditingFinished: { isEditing = false })
+      .fullScreenCover(isPresented: $isEditing) {
+        NavigationStack {
+          EditProfileView(user: user, onEditingFinished: { isEditing = false })
+        }
       }
-    }
   }
 }
 
 private extension ProfileView {
   var isMainUser: Bool {
     user.id == 0
+  }
+
+  var displayedUser: User {
+    isMainUser ? userController.mainUser : model.user
+  }
+}
+
+// MARK: - Content
+
+extension ProfileView {
+  struct Content: View {
+    let user: User
+
+    var body: some View {
+      ScrollView {
+        ProfileView.Header(user: user)
+        Text(user.aboutMe ?? "")
+          .padding(.top, 16.0)
+          .padding(.horizontal, 20.0)
+      }
+    }
   }
 }
 
@@ -84,7 +113,7 @@ extension ProfileView.Header {
 
 #Preview {
   NavigationStack {
-    ProfileView(user: .preview)
+    ProfileView.Content(user: .preview)
   }
 }
 
