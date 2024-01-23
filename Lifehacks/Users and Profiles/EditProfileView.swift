@@ -78,6 +78,30 @@ private extension EditProfileView {
   }
 }
 
+// MARK: - Content
+
+extension EditProfileView {
+  struct Content: View {
+    let profileImageURL: URL?
+
+    @Binding var name: String
+    @Binding var aboutMe: String
+    @Binding var photosItem: PhotosPickerItem?
+
+    var body: some View {
+      ScrollView {
+        EditProfileView.Header(
+          name: $name,
+          photosItem: $photosItem,
+          profileImageURL: profileImageURL
+        )
+        EditProfileView.AboutMe(text: $aboutMe)
+      }
+      .padding(20.0)
+    }
+  }
+}
+
 // MARK: - ErrorMessage
 
 extension EditProfileView {
