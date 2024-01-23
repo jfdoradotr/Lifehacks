@@ -109,6 +109,13 @@ extension ProfileView.Header {
   }
 }
 
+fileprivate extension ProfileView {
+  init(user: User, model: Model) {
+    self.user = user
+    self._model = .init(wrappedValue: model)
+  }
+}
+
 // MARK: - Previews
 
 #Preview {
